@@ -14,6 +14,359 @@
 ];
 
 const searchItems = navItems.map(([href, label, description]) => ({ href, label, description }));
+const innerPageConfigs = {
+  "about.html": {
+    tags: ["Премиальный санаторий", "Проживание и лечение", "Семейный формат"],
+    primary: { href: "contacts.html", label: "Получить консультацию" },
+    secondary: { href: "programs.html", label: "Смотреть программы" },
+    spotlight: {
+      eyebrow: "Почему выбирают ЧЕБЕР",
+      title: "Санаторный опыт, который выглядит современно и ощущается заботливым",
+      text: "Показываем не только лечение, но и уровень сервиса, атмосферу отдыха, удобные маршруты связи и премиальную подачу ключевых смыслов.",
+      facts: ["20+ медицинских направлений", "Территория для отдыха круглый год", "Проживание, процедуры и сервис в одном сценарии"],
+    },
+    palette: {
+      accent: "#4b76b6",
+      accentStrong: "#315c99",
+      surface: "rgba(240, 246, 255, 0.92)",
+    },
+    final: {
+      title: "Подберем формат восстановления и проживания под ваш сценарий",
+      text: "После знакомства с санаторием удобно сразу перейти к программам, размещению или консультации с координатором.",
+    },
+  },
+  "programs.html": {
+    tags: ["Индивидуальный подбор", "Профилактика и восстановление", "Разная длительность"],
+    primary: { href: "contacts.html", label: "Подобрать программу" },
+    secondary: { href: "vouchers.html", label: "Смотреть путевки" },
+    spotlight: {
+      eyebrow: "Как устроен раздел",
+      title: "Программы собраны как витрина готовых сценариев восстановления",
+      text: "Каждый формат легко сравнить по задачам, длительности, наполнению и следующему шагу для бронирования или уточнения условий.",
+      facts: ["Базовые и интенсивные форматы", "Подходящие решения для взрослых и семей", "Связка с путевками, курсовками и проживанием"],
+    },
+    palette: {
+      accent: "#4e7dbd",
+      accentStrong: "#33649f",
+      surface: "rgba(241, 247, 255, 0.92)",
+    },
+    final: {
+      title: "Поможем выбрать программу под цель, длительность и состав заезда",
+      text: "Если важно быстро понять, что подойдет именно вам, удобнее всего перейти в консультацию и получить персональную рекомендацию.",
+    },
+  },
+  "courses.html": {
+    tags: ["Без проживания", "Дневные визиты", "Гибкий формат"],
+    primary: { href: "contacts.html", label: "Уточнить условия" },
+    secondary: { href: "services.html", label: "Посмотреть услуги" },
+    spotlight: {
+      eyebrow: "Курсовки",
+      title: "Гибкий формат для тех, кто хочет получать процедуры без проживания",
+      text: "Визиты можно встроить в привычный график, сохранив доступ к восстановительным и оздоровительным сценариям санатория.",
+      facts: ["Подходят жителям города", "Можно комбинировать с бассейном и услугами", "Понятный маршрут оформления и записи"],
+    },
+    palette: {
+      accent: "#5a84bf",
+      accentStrong: "#3b679f",
+      surface: "rgba(243, 248, 255, 0.92)",
+    },
+    final: {
+      title: "Соберем курсовку под нужные процедуры и удобный режим посещения",
+      text: "Если нужен формат без проживания, оставьте запрос и мы предложим удобный набор визитов и услуг.",
+    },
+  },
+  "vouchers.html": {
+    tags: ["Разная длительность", "Семейные и тематические форматы", "Быстрое сравнение"],
+    primary: { href: "contacts.html", label: "Подобрать путевку" },
+    secondary: { href: "hotel.html", label: "Выбрать размещение" },
+    spotlight: {
+      eyebrow: "Витрина путевок",
+      title: "Форматы заезда собраны так, чтобы их можно было сравнить за несколько минут",
+      text: "Сразу видно длительность, сценарий отдыха, ориентир по цене и направление, которое лучше всего подходит под запрос гостя.",
+      facts: ["Классические и семейные заезды", "Путевки выходного дня и антистресс", "Сценарии для дыхательной системы и пищеварения"],
+    },
+    palette: {
+      accent: "#4f7fc0",
+      accentStrong: "#315f99",
+      surface: "rgba(240, 246, 255, 0.94)",
+    },
+    final: {
+      title: "Подскажем, какая путевка лучше подойдет по длительности и наполнению",
+      text: "Можно начать с консультации, а затем уже перейти к бронированию номера и согласованию программы.",
+    },
+  },
+  "children.html": {
+    tags: ["Родители и дети", "Лагерь и семейные заезды", "Питание и безопасность"],
+    primary: { href: "contacts.html", label: "Узнать о детских программах" },
+    secondary: { href: "hotel.html", label: "Посмотреть семейные номера" },
+    spotlight: {
+      eyebrow: "Для родителей",
+      title: "Страница отвечает на главный вопрос: какой формат подойдет ребенку и семье",
+      text: "Детское направление подается отдельно, чтобы быстро разобраться в возрастах, сценариях пребывания, проживании и практических деталях заезда.",
+      facts: ["Лагерь и оздоровительные программы", "Форматы с проживанием и семейные сценарии", "Связка с бассейном, гостиницей и документами"],
+    },
+    palette: {
+      accent: "#5c86bf",
+      accentStrong: "#3d679f",
+      surface: "rgba(244, 248, 255, 0.94)",
+    },
+    final: {
+      title: "Поможем выбрать безопасный и удобный формат отдыха для ребенка",
+      text: "Подскажем по возрасту, документам, условиям проживания и подходящим программам без лишних поисков по сайту.",
+    },
+  },
+  "medical.html": {
+    tags: ["Процедуры и направления", "Консультация врача", "Премиальный сервис"],
+    primary: { href: "contacts.html", label: "Записаться на консультацию" },
+    secondary: { href: "programs.html", label: "Смотреть программы" },
+    spotlight: {
+      eyebrow: "Медицинский блок",
+      title: "Направления терапии показаны как понятная и доверительная система услуг",
+      text: "Внутри раздела легко считываются основные категории процедур, а следующий шаг к консультации и подбору программы остается очевидным.",
+      facts: ["Физиолечение, ванны и климатические практики", "Массаж и восстановительные техники", "Подбор процедур после консультации врача"],
+    },
+    palette: {
+      accent: "#4a78b4",
+      accentStrong: "#315c97",
+      surface: "rgba(241, 247, 255, 0.94)",
+    },
+    final: {
+      title: "Подберем процедуры и программу после консультации специалиста",
+      text: "Если нужен ориентир по направлениям или совместимости услуг, удобнее всего начать с консультации.",
+    },
+  },
+  "hotel.html": {
+    tags: ["Размещение и комфорт", "Семейные форматы", "Проживание рядом с лечением"],
+    primary: { href: "contacts.html", label: "Забронировать номер" },
+    secondary: { href: "offers.html", label: "Смотреть предложения" },
+    spotlight: {
+      eyebrow: "Гостиница",
+      title: "Раздел проживания работает как самостоятельная премиальная витрина",
+      text: "Номера, комфорт, правила заезда и семейные сценарии показаны так же выразительно, как программы и спецпредложения на главной.",
+      facts: ["Базовые, семейные и улучшенные номера", "Связка с путевками и детскими сценариями", "Понятный путь от выбора до бронирования"],
+    },
+    palette: {
+      accent: "#557db7",
+      accentStrong: "#365f98",
+      surface: "rgba(242, 247, 255, 0.94)",
+    },
+    final: {
+      title: "Подберем размещение под формат отдыха, лечения и состав гостей",
+      text: "Можно сразу уточнить наличие номеров и подходящие даты заезда вместе с программой или путевкой.",
+    },
+  },
+  "services.html": {
+    tags: ["Бассейн и сауна", "Тренировки и восстановление", "Дополнительные форматы"],
+    primary: { href: "contacts.html", label: "Уточнить посещение" },
+    secondary: { href: "children.html", label: "Детские занятия" },
+    spotlight: {
+      eyebrow: "Дополнительные услуги",
+      title: "Водные и спортивные форматы подаются как часть общего оздоровительного опыта",
+      text: "Это не второстепенный раздел, а полноценное продолжение премиального маршрута гостя: от свободного плавания до занятий с тренером.",
+      facts: ["Свободное плавание и индивидуальные занятия", "Детские и групповые форматы", "Удобно связать с проживанием и программами"],
+    },
+    palette: {
+      accent: "#5b84bc",
+      accentStrong: "#3f659c",
+      surface: "rgba(243, 248, 255, 0.94)",
+    },
+    final: {
+      title: "Подскажем по посещению бассейна, занятиям и дополнительным услугам",
+      text: "Уточним расписание, свободные форматы и варианты сочетания с другими сценариями отдыха и восстановления.",
+    },
+  },
+  "documents.html": {
+    tags: ["Подготовка к заезду", "Памятки и лицензии", "Все файлы в одном месте"],
+    primary: { href: "contacts.html", label: "Уточнить по документам" },
+    secondary: { href: "about.html", label: "О санатории" },
+    spotlight: {
+      eyebrow: "Практический раздел",
+      title: "Документы оформлены как удобный сервисный центр, а не как сухой список файлов",
+      text: "Гость быстро понимает, что скачать перед заездом, где найти правила и какие официальные материалы пригодятся на этапе подготовки.",
+      facts: ["Файлы на заезд и памятки", "Лицензии и реквизиты рядом", "Быстрая связь, если нужно уточнение"],
+    },
+    palette: {
+      accent: "#567eb8",
+      accentStrong: "#385f96",
+      surface: "rgba(242, 247, 255, 0.94)",
+    },
+    final: {
+      title: "Если не уверены, какие документы нужны, поможем подготовиться к заезду",
+      text: "Быстрее всего уточнить состав документов и порядок оформления через координатора санатория.",
+    },
+  },
+  "offers.html": {
+    tags: ["Сезонные акции", "Подарочные сертификаты", "Семейные заезды"],
+    primary: { href: "contacts.html", label: "Получить предложение" },
+    secondary: { href: "hotel.html", label: "Выбрать размещение" },
+    spotlight: {
+      eyebrow: "Акции и выгоды",
+      title: "Спецпредложения оформлены как эмоциональная витрина с понятным следующим шагом",
+      text: "Гость может быстро увидеть выгоду, формат предложения и перейти к подходящему разделу или запросу консультации.",
+      facts: ["Подарочные и сезонные предложения", "Сертификаты и семейные форматы", "Связка с проживанием, программами и путевками"],
+    },
+    palette: {
+      accent: "#4f7bb4",
+      accentStrong: "#345e96",
+      surface: "rgba(242, 247, 255, 0.94)",
+    },
+    final: {
+      title: "Подберем предложение под даты заезда, состав гостей и нужный формат отдыха",
+      text: "Можно быстро уточнить актуальные выгоды и сразу перейти к бронированию подходящего сценария.",
+    },
+  },
+  "contacts.html": {
+    tags: ["Телефон и мессенджеры", "Адрес и карта", "Быстрый ответ"],
+    primary: { href: "tel:+78000000000", label: "Позвонить сейчас" },
+    secondary: { href: "https://wa.me/70000000000", label: "Написать в WhatsApp" },
+    spotlight: {
+      eyebrow: "Связь без лишних шагов",
+      title: "Контактная страница закрывает путь пользователя так же уверенно, как главная открывает его",
+      text: "Все каналы связи, адрес и навигационные подсказки собраны в одной выразительной сервисной странице с понятными CTA.",
+      facts: ["Телефон, почта и мессенджеры", "Понятный режим работы", "Маршрут к быстрой консультации и карте"],
+    },
+    palette: {
+      accent: "#557db7",
+      accentStrong: "#356097",
+      surface: "rgba(242, 247, 255, 0.94)",
+    },
+    final: {
+      title: "Выберите удобный канал связи, и мы быстро сориентируем по заезду, программе и размещению",
+      text: "Если вопрос срочный, звонок или мессенджер остаются самым быстрым способом получить ответ.",
+    },
+  },
+};
+
+function buildInnerHeroButtons(config) {
+  const buttons = [config.primary, config.secondary].filter(Boolean);
+  if (!buttons.length) return "";
+
+  return `
+    <div class="hero-actions page-hero-actions">
+      ${buttons
+        .map((button, index) => {
+          const kind = index === 0 ? "btn btn-primary" : "btn btn-secondary";
+          const external = button.href.startsWith("http");
+          const rel = external ? ' rel="noreferrer"' : "";
+          const target = external ? ' target="_blank"' : "";
+          return `<a class="${kind}" href="${button.href}"${target}${rel}>${button.label}</a>`;
+        })
+        .join("")}
+    </div>
+  `;
+}
+
+function buildSingleInnerButton(button, kind = "primary") {
+  if (!button) return "";
+  const className = kind === "primary" ? "btn btn-primary" : "btn btn-secondary";
+  const external = button.href.startsWith("http");
+  const rel = external ? ' rel="noreferrer"' : "";
+  const target = external ? ' target="_blank"' : "";
+  return `<a class="${className}" href="${button.href}"${target}${rel}>${button.label}</a>`;
+}
+
+function buildInnerHeroTags(hero, config) {
+  const existing = hero.querySelector(".chip-row");
+  if (existing) {
+    existing.classList.add("page-hero-tags");
+    return existing.outerHTML;
+  }
+
+  if (!config.tags?.length) return "";
+  return `
+    <div class="chip-row page-hero-tags">
+      ${config.tags.map((tag) => `<span class="chip">${tag}</span>`).join("")}
+    </div>
+  `;
+}
+
+function enhanceInnerPages() {
+  const page = document.body.dataset.page || "index.html";
+  if (page === "index.html") return;
+
+  document.body.classList.add("inner-page-shell");
+
+  const config = innerPageConfigs[page] || innerPageConfigs["about.html"];
+  const hero = document.querySelector(".page-hero");
+
+  if (hero && !hero.classList.contains("page-hero--enhanced")) {
+    const eyebrow = hero.querySelector(".eyebrow")?.outerHTML || "";
+    const title = hero.querySelector("h1")?.outerHTML || "";
+    const paragraphs = Array.from(hero.querySelectorAll("p"))
+      .map((paragraph) => paragraph.outerHTML)
+      .join("");
+    const tagsMarkup = buildInnerHeroTags(hero, config);
+    const spotlightFacts = config.spotlight.facts
+      .map((fact) => `<li>${fact}</li>`)
+      .join("");
+
+    hero.classList.add("page-hero--enhanced");
+    hero.style.setProperty("--inner-hero-accent", config.palette.accent);
+    hero.style.setProperty("--inner-hero-accent-strong", config.palette.accentStrong);
+    hero.style.setProperty("--inner-hero-surface", config.palette.surface);
+    hero.innerHTML = `
+      <div class="page-hero-stage">
+        <div class="page-hero-copy">
+          ${eyebrow}
+          ${title}
+          <div class="page-hero-lead">
+            ${paragraphs}
+          </div>
+          ${tagsMarkup}
+          ${buildInnerHeroButtons(config)}
+        </div>
+        <aside class="page-hero-aside">
+          <article class="page-hero-aside-card page-hero-aside-card--accent">
+            <span class="eyebrow">${config.spotlight.eyebrow}</span>
+            <h2>${config.spotlight.title}</h2>
+            <p>${config.spotlight.text}</p>
+          </article>
+          <article class="page-hero-aside-card">
+            <strong>В фокусе раздела</strong>
+            <ul class="page-hero-facts">
+              ${spotlightFacts}
+            </ul>
+          </article>
+        </aside>
+      </div>
+      <div class="page-hero-backdrop" aria-hidden="true"></div>
+    `;
+  }
+
+  const sections = Array.from(document.querySelectorAll(".page-main > .section"));
+  sections.forEach((section, index) => {
+    section.classList.add("inner-page-section");
+    if (index === 0) section.classList.add("inner-page-section--intro");
+  });
+
+  const hasCtaBanner = document.querySelector(".page-main .cta-banner");
+  if (hasCtaBanner) {
+    const actions = hasCtaBanner.querySelector(".hero-actions");
+    if (actions && !actions.querySelector(".btn-primary") && config.primary) {
+      actions.insertAdjacentHTML("afterbegin", buildSingleInnerButton(config.primary, "primary"));
+    } else if (!actions) {
+      hasCtaBanner.insertAdjacentHTML("beforeend", buildInnerHeroButtons(config));
+    }
+  } else {
+    const pageMain = document.querySelector(".page-main");
+    if (pageMain) {
+      const finalSection = document.createElement("section");
+      finalSection.className = "section reveal inner-page-section inner-page-final-cta";
+      finalSection.innerHTML = `
+        <div class="cta-banner cta-banner--inner-page">
+          <span class="eyebrow">Следующий шаг</span>
+          <h2>${config.final.title}</h2>
+          <p>${config.final.text}</p>
+          ${buildInnerHeroButtons(config)}
+        </div>
+      `;
+      pageMain.appendChild(finalSection);
+    }
+  }
+
+  const stickyBar = document.querySelector(".sticky-contact-bar");
+  if (stickyBar) stickyBar.classList.add("sticky-contact-bar--inner");
+}
 
 function buildMainNav(page) {
   const featured = navItems.slice(0, 8);
@@ -384,6 +737,7 @@ function initOffersSlider() {
 document.addEventListener("DOMContentLoaded", () => {
   renderShell();
   initTheme();
+  enhanceInnerPages();
   initHeader();
   initSearchOverlay();
   initReveal();
