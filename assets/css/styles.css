@@ -5751,6 +5751,60 @@ select,
 .extra-features-grid .medical-tile[href="hotel.html"] img { object-position: center 34%; }
 .extra-features-grid .medical-tile[href$="#restaurant-rent"] img { object-position: center 66%; }
 
+/* B2B module */
+.b2b-section {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.b2b-head {
+  margin-bottom: 24px;
+}
+
+.b2b-layout {
+  grid-template-columns: 0.9fr 2.1fr;
+}
+
+.b2b-info {
+  min-height: auto;
+}
+
+.b2b-info strong {
+  max-width: 22ch;
+}
+
+.b2b-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.b2b-points {
+  margin: 18px 0 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.b2b-points li {
+  color: #2b2521;
+  font-size: 15px !important;
+  line-height: 1.5;
+}
+
+.b2b-tile {
+  width: 100%;
+  min-height: 339px;
+  height: 339px;
+}
+
+.b2b-tile::before {
+  background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.18) 100%);
+}
+
+.b2b-tile img {
+  object-fit: cover;
+  object-position: center 44%;
+}
+
 /* FAQ module */
 .faq-section {
   padding-top: 48px;
@@ -5916,6 +5970,8 @@ select,
 }
 
 @media (max-width: 1180px) {
+  .b2b-layout { grid-template-columns: 1fr; }
+
   .faq-head,
   .faq-grid,
   .faq-contact {
@@ -5938,6 +5994,15 @@ select,
 }
 
 @media (max-width: 760px) {
+  .b2b-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .b2b-info,
+  .b2b-tile {
+    min-height: 320px;
+  }
+
   .faq-shell {
     padding: 28px 22px 22px;
     border-radius: 24px;
@@ -6118,7 +6183,7 @@ select,
 
 
 
-/* Home hero/header override inspired by mayrveda.ru */
+/* Home hero/header override inspired by cheber */
 .home-page-shell .header-wrap-premium {
   background: rgba(2, 49, 94, 0.34) !important;
   border-color: rgba(255,255,255,0.1);
@@ -6213,7 +6278,7 @@ select,
   border: 1px solid rgba(255,255,255,0.42);
 }
 
-/* Home hero/header override - neutral glass, close to mayrveda.ru */
+/* Home hero/header override - neutral glass, close to cheber */
 .home-page-shell .header-wrap-premium {
   background: rgba(2, 49, 94, 0.26) !important;
   border-color: rgba(255,255,255,0.14) !important;
@@ -6564,16 +6629,11 @@ body::before {
 
 /* Inner pages premium layer */
 body.inner-page-shell {
-  background:
-    linear-gradient(180deg, rgba(245, 249, 255, 0.92) 0%, rgba(255, 255, 255, 0.98) 18%, #ffffff 100%);
+  background: #FFFFFF;
 }
 
 body.inner-page-shell::before {
-  opacity: 0.2;
-  background:
-    radial-gradient(circle at 14% 18%, rgba(56, 105, 172, 0.08), transparent 16%),
-    radial-gradient(circle at 88% 14%, rgba(79, 124, 188, 0.07), transparent 14%),
-    radial-gradient(circle at 76% 74%, rgba(56, 105, 172, 0.06), transparent 18%);
+  opacity: 0;
 }
 
 .inner-page-shell .site-header {
@@ -6585,22 +6645,26 @@ body.inner-page-shell::before {
 }
 
 .inner-page-shell .header-wrap-premium {
-  background: rgba(242, 247, 252, 0.78);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-color: rgba(223, 232, 244, 0.85);
-  box-shadow: 0 20px 50px rgba(31, 47, 78, 0.08);
+  background: rgba(242,247,252,0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  box-shadow: none;
 }
 
 .inner-page-shell .brand-mark-premium {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent),
-    linear-gradient(145deg, #3869AC, #2F5C96);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 12px 28px rgba(56, 105, 172, 0.18);
+  color: #FFFFFF;
+  border: 1px solid #E3EBF3;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
 }
 
+.inner-page-shell .brand-copy,
+.inner-page-shell .brand-copy strong,
+.inner-page-shell .nav-toggle,
 .inner-page-shell .header-inline-nav .nav-link {
-  color: #203040;
+  color: #FFFFFF;
+  transition: color 0.35s ease;
 }
 
 .inner-page-shell .header-inline-nav .nav-link::after {
@@ -6612,32 +6676,79 @@ body.inner-page-shell::before {
   color: #3869AC;
 }
 
+.inner-page-shell .site-header.is-scrolled .brand-copy,
+.inner-page-shell .site-header.is-scrolled .brand-copy strong,
+.inner-page-shell .site-header.is-scrolled .nav-toggle,
+.inner-page-shell .site-header.is-scrolled .header-inline-nav .nav-link {
+  color: #1E2630;
+}
+
+.inner-page-shell .site-header.is-scrolled .brand-mark-premium {
+  color: #1E2630;
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(227, 235, 243, 0.9);
+}
+
 .inner-page-shell .page-main {
   width: min(var(--container), calc(100% - 28px));
   margin: 0 auto;
-  padding: 28px 0 96px;
+  padding: 0 0 96px;
+}
+
+.inner-page-shell .btn {
+  min-height: 56px;
+  padding: 0 28px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.inner-page-shell .btn-primary {
+  background: #3869AC;
+  color: #FFFFFF;
+  border-color: #3869AC;
+  box-shadow: 0 10px 24px rgba(56,105,172,0.18);
+}
+
+.inner-page-shell .btn-primary:hover {
+  background: #2F5C96;
+  border-color: #2F5C96;
+}
+
+.inner-page-shell .btn-secondary {
+  background: transparent;
+  color: #1E2630;
+  border-color: #E3EBF3;
+}
+
+.inner-page-shell .btn-secondary:hover {
+  background: transparent;
+  color: #3869AC;
+  border-color: #3869AC;
 }
 
 .inner-page-shell .page-hero {
   position: relative;
   overflow: hidden;
-  min-height: 520px;
-  padding: 40px;
-  border-radius: 38px;
-  border: 1px solid rgba(219, 231, 244, 0.92);
+  min-height: 640px;
+  margin-top: -116px;
+  padding: 168px 40px 56px;
+  border-radius: 0 0 20px 20px;
+  border: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.16)),
-    linear-gradient(145deg, rgba(246, 250, 255, 0.96), rgba(235, 243, 252, 0.92));
-  box-shadow: 0 30px 80px rgba(31, 47, 78, 0.09);
+    linear-gradient(180deg, rgba(15, 23, 32, 0.28) 0%, rgba(15, 23, 32, 0.18) 52%, rgba(15, 23, 32, 0.08) 100%),
+    linear-gradient(145deg, rgba(56, 105, 172, 0.82), rgba(47, 92, 150, 0.9));
+  box-shadow: none;
 }
 
 .inner-page-shell .page-hero-backdrop {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--inner-hero-accent, #3869AC) 30%, transparent), transparent 24%),
-    radial-gradient(circle at 18% 78%, color-mix(in srgb, var(--inner-hero-accent, #3869AC) 16%, transparent), transparent 26%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.42), color-mix(in srgb, var(--inner-hero-surface, rgba(242, 247, 255, 0.92)) 88%, white));
+    radial-gradient(circle at 82% 18%, rgba(255,255,255,0.14), transparent 24%),
+    radial-gradient(circle at 18% 78%, rgba(255,255,255,0.09), transparent 26%),
+    linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
   opacity: 1;
 }
 
@@ -6654,24 +6765,27 @@ body.inner-page-shell::before {
   display: grid;
   gap: 18px;
   align-self: center;
-  max-width: 720px;
+  max-width: none;
 }
 
 .inner-page-shell .page-hero .eyebrow {
   width: fit-content;
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(196, 212, 232, 0.95);
-  color: #2F5C96;
-  box-shadow: 0 8px 18px rgba(56, 105, 172, 0.08);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: rgba(255, 255, 255, 0.96);
+  box-shadow: none;
 }
 
-.inner-page-shell .page-hero h1 {
+.inner-page-shell .page-hero h1,
+.inner-page-shell .page-hero-copy h1 {
   margin: 0;
-  max-width: 14ch;
-  font-size: clamp(2.75rem, 5vw, 4.9rem);
-  line-height: 0.96;
-  letter-spacing: -0.055em;
-  color: #1E2630;
+  max-width: none;
+  font-family: "Segoe UI", Arial, sans-serif !important;
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
 }
 
 .inner-page-shell .page-hero-lead {
@@ -6682,8 +6796,8 @@ body.inner-page-shell::before {
 
 .inner-page-shell .page-hero p {
   margin: 0;
-  color: #51606f;
-  font-size: 1.04rem;
+  color: rgba(255,255,255,0.92);
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -6692,9 +6806,9 @@ body.inner-page-shell::before {
 }
 
 .inner-page-shell .page-hero-tags .chip {
-  background: rgba(255, 255, 255, 0.76);
-  border-color: rgba(206, 220, 239, 0.94);
-  color: #24425f;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
 }
 
 .inner-page-shell .page-hero-actions {
@@ -6710,19 +6824,17 @@ body.inner-page-shell::before {
 .inner-page-shell .page-hero-aside-card {
   position: relative;
   padding: 24px;
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(209, 222, 240, 0.9);
-  box-shadow: 0 22px 52px rgba(43, 62, 90, 0.08);
+  border-radius: 20px;
+  background: rgba(242,247,252,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .inner-page-shell .page-hero-aside-card--accent {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08)),
-    linear-gradient(145deg, color-mix(in srgb, var(--inner-hero-accent, #3869AC) 92%, white 8%), color-mix(in srgb, var(--inner-hero-accent-strong, #2F5C96) 95%, white 5%));
-  border-color: transparent;
+  background: rgba(242,247,252,0.10);
+  border-color: rgba(255,255,255,0.18);
   color: #fff;
 }
 
@@ -6737,14 +6849,15 @@ body.inner-page-shell::before {
   display: block;
   margin: 0;
   color: inherit;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .inner-page-shell .page-hero-aside-card h2 {
   margin-top: 16px;
-  font-size: 1.65rem;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .inner-page-shell .page-hero-aside-card p {
@@ -6764,7 +6877,7 @@ body.inner-page-shell::before {
 .inner-page-shell .page-hero-facts li {
   position: relative;
   padding-left: 18px;
-  color: #324759;
+  color: rgba(255,255,255,0.92);
 }
 
 .inner-page-shell .page-hero-facts li::before {
@@ -6775,7 +6888,7 @@ body.inner-page-shell::before {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--inner-hero-accent, #3869AC);
+  background: #FFFFFF;
 }
 
 .inner-page-shell .section {
@@ -6808,12 +6921,10 @@ body.inner-page-shell::before {
 .inner-page-shell .doc-item,
 .inner-page-shell .contact-panel,
 .inner-page-shell .medical-category-card {
-  border-radius: 28px;
-  border: 1px solid rgba(221, 232, 244, 0.92);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.9)),
-    linear-gradient(145deg, rgba(242, 247, 255, 0.78), rgba(255, 255, 255, 0.96));
-  box-shadow: 0 24px 56px rgba(31, 47, 78, 0.08);
+  border-radius: 18px;
+  border: 1px solid #E3EBF3;
+  background: #F2F7FC;
+  box-shadow: 0 4px 20px rgba(30, 38, 48, 0.04);
 }
 
 .inner-page-shell .card,
@@ -6837,6 +6948,7 @@ body.inner-page-shell::before {
 .inner-page-shell .contact-panel h3,
 .inner-page-shell .medical-category-card h2 {
   color: #1E2630;
+  font-family: "Segoe UI", Arial, sans-serif !important;
 }
 
 .inner-page-shell .card p,
@@ -6853,21 +6965,17 @@ body.inner-page-shell::before {
 
 .inner-page-shell .media-card,
 .inner-page-shell .contact-map {
-  border-radius: 26px;
-  border: 1px solid rgba(214, 226, 241, 0.92);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.12)),
-    linear-gradient(145deg, rgba(232, 241, 252, 0.96), rgba(245, 249, 255, 0.92));
+  border-radius: 20px;
+  border: 1px solid #E3EBF3;
+  background: #F2F7FC;
 }
 
 .inner-page-shell .special-offer-card--page,
 .inner-page-shell .voucher-card--page {
-  border-radius: 30px;
-  border: 1px solid rgba(221, 232, 244, 0.92);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.96)),
-    linear-gradient(145deg, rgba(242, 247, 255, 0.82), rgba(255, 255, 255, 0.98));
-  box-shadow: 0 28px 62px rgba(31, 47, 78, 0.08);
+  border-radius: 18px;
+  border: 1px solid #E3EBF3;
+  background: #F2F7FC;
+  box-shadow: 0 4px 20px rgba(30, 38, 48, 0.04);
   overflow: hidden;
 }
 
@@ -6887,12 +6995,10 @@ body.inner-page-shell::before {
   gap: 24px;
   align-items: stretch;
   padding: 34px;
-  border-radius: 32px;
-  border: 1px solid rgba(212, 225, 242, 0.92);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.12)),
-    linear-gradient(145deg, rgba(61, 103, 159, 0.94), rgba(46, 88, 145, 0.98));
-  box-shadow: 0 30px 70px rgba(34, 58, 93, 0.16);
+  border-radius: 20px;
+  border: 1px solid #E3EBF3;
+  background: #3869AC;
+  box-shadow: none;
 }
 
 .inner-page-shell .service-band h3,
@@ -6915,12 +7021,10 @@ body.inner-page-shell::before {
 .inner-page-shell .cta-banner,
 .inner-page-shell .cta-banner--inner-page {
   padding: 36px;
-  border-radius: 34px;
-  border: 1px solid rgba(212, 225, 242, 0.92);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
-    linear-gradient(145deg, #4a74b5, #315b96);
-  box-shadow: 0 30px 74px rgba(37, 64, 103, 0.18);
+  border-radius: 20px;
+  border: 1px solid #E3EBF3;
+  background: #3869AC;
+  box-shadow: none;
 }
 
 .inner-page-shell .cta-banner .eyebrow,
@@ -6939,13 +7043,13 @@ body.inner-page-shell::before {
 
 .inner-page-shell .cta-banner .btn-secondary,
 .inner-page-shell .cta-banner--inner-page .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   border-color: rgba(255, 255, 255, 0.22);
   color: #fff;
 }
 
 .inner-page-shell .sticky-contact-bar--inner {
-  border-top: 1px solid rgba(215, 227, 243, 0.92);
+  border-top: 1px solid #E3EBF3;
   background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -6966,7 +7070,7 @@ body.inner-page-shell::before {
   .inner-page-shell .special-offer-card--page:hover,
   .inner-page-shell .voucher-card--page:hover {
     transform: translateY(-4px);
-    box-shadow: 0 34px 74px rgba(31, 47, 78, 0.11);
+    box-shadow: 0 10px 28px rgba(30, 38, 48, 0.08);
   }
 }
 
@@ -6992,11 +7096,11 @@ body.inner-page-shell::before {
   .inner-page-shell .cta-banner,
   .inner-page-shell .cta-banner--inner-page {
     padding: 26px;
-    border-radius: 28px;
+    border-radius: 20px;
   }
 
   .inner-page-shell .page-hero h1 {
-    font-size: clamp(2.2rem, 10vw, 3.4rem);
+    font-size: 30px;
     max-width: none;
   }
 
@@ -7008,7 +7112,7 @@ body.inner-page-shell::before {
   .inner-page-shell .contact-panel,
   .inner-page-shell .medical-category-card {
     padding: 22px;
-    border-radius: 24px;
+    border-radius: 18px;
   }
 }
 
