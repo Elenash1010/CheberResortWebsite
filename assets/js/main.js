@@ -14,6 +14,26 @@
 ];
 
 const searchItems = navItems.map(([href, label, description]) => ({ href, label, description }));
+const homeHeaderLinks = [
+  ["about-cheber", "О санатории", "Санаторий «Чебер» — современное пространство здоровья и восстановления"],
+  ["special-offers", "Акции", "Специальные предложения"],
+  ["vouchers", "Путевки", "Путевки: интенсивность и длительность"],
+  ["courses", "Курсовки", "Курсовки"],
+  ["therapy-procedures", "Терапия и процедуры", "Терапия и процедуры"],
+  ["specialists", "Специалисты", "Наши специалисты"],
+  ["pool-sauna", "Бассейн и сауна", "Бассейн и сауна"],
+  ["children-programs", "Программы для детей", "Программы для детей"],
+];
+const homeMoreLinks = [
+  ["comfort-rooms", "Забронировать номер", "Комфортные номера"],
+  ["infrastructure", "Инфраструктура", "Инфраструктура"],
+  ["extra-features", "Бронирование под мероприятия", "Дополнительные возможности"],
+  ["b2b-spaces", "Пространства для бизнеса", "B2B: Пространства для бизнеса"],
+];
+
+function buildHomeAnchorHref(page, anchor) {
+  return page === "index.html" ? `#${anchor}` : `index.html#${anchor}`;
+}
 const innerPageConfigs = {
   "about.html": {
     tags: ["Премиальный санаторий", "Проживание и лечение", "Семейный формат"],
@@ -379,21 +399,35 @@ function buildMainNav(page) {
 }
 
 function buildHeaderNav(page) {
-  const featured = [
-    ["about.html", "О санатории"],
-    ["programs.html", "Программы"],
-    ["courses.html", "Курсовки"],
-    ["vouchers.html", "Путевки"],
-    ["medical.html", "Медицинские услуги"],
-    ["contacts.html", "Контакты"],
-  ];
-
-  return featured
-    .map(([href, label]) => {
-      const activeClass = page === href ? "nav-link is-active" : "nav-link";
-      return `<a class="${activeClass}" href="${href}">${label}</a>`;
+  return homeHeaderLinks
+    .map(([anchor, label]) => {
+      return `<a class="nav-link" href="${buildHomeAnchorHref(page, anchor)}">${label}</a>`;
     })
     .join("");
+}
+
+function buildHeaderMoreMenu(page) {
+  const links = homeMoreLinks
+    .map(([anchor, label, description]) => `
+      <a class="mega-link mega-link--header" href="${buildHomeAnchorHref(page, anchor)}">
+        <strong>${label}</strong>
+        <span>${description}</span>
+      </a>
+    `)
+    .join("");
+
+  return `
+    <button class="nav-link nav-link--toggle" type="button" data-mega-toggle aria-expanded="false" aria-controls="header-more-menu">Еще</button>
+    <div class="mega-panel" id="header-more-menu" data-mega-panel>
+      <div class="mega-links mega-links--header">
+        ${links}
+      </div>
+    </div>
+  `;
+}
+
+function buildHeaderContactsLink(page) {
+  return `<a class="nav-link" href="${buildHomeAnchorHref(page, "contacts-block")}">Контакты</a>`;
 }
 function buildMegaLinks(page) {
   return navItems
@@ -410,11 +444,12 @@ function buildMegaLinks(page) {
 }
 
 function buildMobileNav(page) {
-  return navItems
-    .map(([href, label, description]) => {
-      const active = page === href ? ' aria-current="page"' : "";
+  const mobileItems = [...homeHeaderLinks, ...homeMoreLinks];
+
+  return mobileItems
+    .map(([anchor, label, description]) => {
       return `
-        <a href="${href}"${active}>
+        <a href="${buildHomeAnchorHref(page, anchor)}">
           <strong>${label}</strong>
           <span>${description}</span>
         </a>
@@ -440,6 +475,8 @@ function renderShell() {
           </a>
           <nav class="header-inline-nav" aria-label="Основная навигация">
             ${buildHeaderNav(page)}
+            ${buildHeaderMoreMenu(page)}
+            ${buildHeaderContactsLink(page)}
           </nav>
           <div class="header-utility">
             <a class="btn btn-primary header-cta" href="contacts.html">Забронировать / связаться</a>
