@@ -7708,7 +7708,6 @@ body.inner-page-shell::before {
 }
 
 /* Final header edge alignment */
-.home-page-shell .site-header,
 .inner-page-shell .site-header,
 .voucher-plain-shell .site-header {
   top: 0 !important;
@@ -7716,7 +7715,6 @@ body.inner-page-shell::before {
   background: rgba(255, 255, 255, 0.96);
 }
 
-.home-page-shell .header-wrap-premium,
 .inner-page-shell .header-wrap-premium,
 .voucher-plain-shell .header-wrap-premium {
   margin-top: 0 !important;
