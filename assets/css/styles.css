@@ -4998,6 +4998,12 @@ select,
     border-radius: 20px 20px 0 0;
   }
 
+  .voucher-modal__panel--page {
+    max-height: none;
+    overflow: visible;
+    border-radius: 0;
+  }
+
   .voucher-modal__image-strip {
     grid-template-columns: 1fr;
     gap: 10px;
