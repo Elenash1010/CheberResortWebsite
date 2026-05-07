@@ -144,6 +144,22 @@ button {
   overflow: clip;
 }
 
+.voucher-plain-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  overflow: visible;
+}
+
+.voucher-plain-shell .voucher-page-main {
+  flex: 1 0 auto;
+}
+
+.voucher-plain-shell .site-footer {
+  position: static;
+  flex: 0 0 auto;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -5054,6 +5070,15 @@ select,
   .voucher-page-shell {
     width: calc(100% - 24px);
     margin-bottom: 32px;
+  }
+
+  .voucher-plain-shell .voucher-page-main {
+    padding-bottom: 24px;
+  }
+
+  .voucher-plain-shell .site-footer {
+    margin-top: 0;
+    margin-bottom: 112px;
   }
 }
 
