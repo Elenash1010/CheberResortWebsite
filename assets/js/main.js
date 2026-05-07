@@ -591,10 +591,47 @@ function initHeader() {
   window.addEventListener("scroll", syncScroll, { passive: true });
 
   if (toggle && mobileNav) {
+    function closeMobileNav() {
+      toggle.setAttribute("aria-expanded", "false");
+      mobileNav.classList.remove("is-open");
+    }
+
     toggle.addEventListener("click", () => {
       const expanded = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!expanded));
       mobileNav.classList.toggle("is-open", !expanded);
+    });
+
+    mobileNav.addEventListener("click", (event) => {
+      const link = event.target.closest("a[href]");
+      if (!link) return;
+
+      const url = new URL(link.getAttribute("href"), window.location.href);
+      const isSamePageHash =
+        url.hash &&
+        url.origin === window.location.origin &&
+        url.pathname === window.location.pathname;
+
+      closeMobileNav();
+
+      if (!isSamePageHash) return;
+
+      const target = document.querySelector(url.hash);
+      if (!target) return;
+
+      event.preventDefault();
+      history.pushState(null, "", url.hash);
+      requestAnimationFrame(() => target.scrollIntoView({ block: "start", behavior: "smooth" }));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!mobileNav.classList.contains("is-open")) return;
+      if (event.target.closest(".nav-toggle") || event.target.closest(".mobile-nav")) return;
+      closeMobileNav();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMobileNav();
     });
   }
 
