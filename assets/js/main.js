@@ -303,6 +303,7 @@ function buildInnerHeroTags(hero, config) {
 function enhanceInnerPages() {
   const page = document.body.dataset.page || "index.html";
   if (page === "index.html") return;
+  if (document.body.dataset.pageLayout === "plain") return;
 
   document.body.classList.add("inner-page-shell");
 
@@ -582,7 +583,8 @@ function initHeader() {
 
   function syncScroll() {
     if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 24);
+    const forceStandardHeader = document.body.dataset.pageLayout === "plain";
+    header.classList.toggle("is-scrolled", forceStandardHeader || window.scrollY > 24);
   }
 
   syncScroll();
@@ -855,6 +857,66 @@ function initVouchersSlider() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initVouchersSlider();
+});
+
+function initVoucherModals() {
+  const openers = Array.from(document.querySelectorAll("[data-voucher-modal-open]"));
+  const modals = Array.from(document.querySelectorAll("[data-voucher-modal]"));
+  if (!openers.length || !modals.length) return;
+
+  let activeModal = null;
+  let lastFocusedElement = null;
+
+  const getModal = (name) => modals.find((modal) => modal.dataset.voucherModal === name);
+
+  const closeModal = () => {
+    if (!activeModal) return;
+    activeModal.classList.remove("is-open");
+    activeModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocusedElement) lastFocusedElement.focus();
+    activeModal = null;
+    lastFocusedElement = null;
+  };
+
+  const openModal = (name) => {
+    const modal = getModal(name);
+    if (!modal) return;
+    lastFocusedElement = document.activeElement;
+    activeModal = modal;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const closeButton = modal.querySelector("[data-voucher-modal-close]");
+    if (closeButton) closeButton.focus();
+  };
+
+  openers.forEach((opener) => {
+    const modalName = opener.dataset.voucherModalOpen;
+
+    opener.addEventListener("click", () => {
+      openModal(modalName);
+    });
+
+    opener.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      openModal(modalName);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest("[data-voucher-modal-close]")) return;
+    closeModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initVoucherModals();
 });
 
 
