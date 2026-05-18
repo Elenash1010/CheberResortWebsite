@@ -833,62 +833,140 @@ document.addEventListener("DOMContentLoaded", () => {
 function initVouchersSlider() {
   document.querySelectorAll("[data-vouchers-slider]").forEach((root) => {
     const track = root.querySelector("[data-vouchers-track]");
-    const slides = Array.from(root.querySelectorAll("[data-voucher-slide]"));
     const prev = root.querySelector("[data-vouchers-prev]");
     const next = root.querySelector("[data-vouchers-next]");
     const dotsWrap = root.querySelector("[data-vouchers-dots]");
-    if (!track || !slides.length || !prev || !next || !dotsWrap) return;
+    if (!track || !prev || !next || !dotsWrap) return;
 
-    let index = 0;
+    const templates = Array.from(track.children).map((slide) => slide.outerHTML);
+    if (!templates.length) return;
+
+    let visibleCount = 0;
+    let cloneCount = 0;
+    let currentIndex = 0;
+    let logicalIndex = 0;
+    let slides = [];
+    let dots = [];
+    let isAnimating = false;
 
     const getVisibleCount = () => {
       if (window.innerWidth <= 760) return 1;
       return 2;
     };
 
-    const getMaxIndex = () => Math.max(0, slides.length - getVisibleCount());
+    const total = templates.length;
+    const isLoopable = () => total > visibleCount;
 
-    slides.forEach((_, dotIndex) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.setAttribute("aria-label", `Перейти к путевке ${dotIndex + 1}`);
-      button.addEventListener("click", () => {
-        index = Math.min(dotIndex, getMaxIndex());
-        update();
+    function createSlide(markup, isClone = false) {
+      const template = document.createElement("template");
+      template.innerHTML = markup.trim();
+      const node = template.content.firstElementChild;
+      if (isClone) node.dataset.clone = "true";
+      return node;
+    }
+
+    function buildDots() {
+      dotsWrap.innerHTML = "";
+
+      templates.forEach((_, dotIndex) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.setAttribute("aria-label", `Перейти к путевке ${dotIndex + 1}`);
+        button.addEventListener("click", () => {
+          if (isAnimating) return;
+          logicalIndex = isLoopable() ? dotIndex : 0;
+          currentIndex = isLoopable() ? logicalIndex + cloneCount : logicalIndex;
+          moveTo(currentIndex, true);
+          updateUi();
+        });
+        dotsWrap.appendChild(button);
       });
-      dotsWrap.appendChild(button);
-    });
 
-    const dots = Array.from(dotsWrap.querySelectorAll("button"));
+      dots = Array.from(dotsWrap.querySelectorAll("button"));
+    }
 
-    function update() {
-      const visibleCount = getVisibleCount();
-      const maxIndex = Math.max(0, slides.length - visibleCount);
-      index = Math.max(0, Math.min(index, maxIndex));
+    function moveTo(index, animate) {
       const slideWidth = slides[0].getBoundingClientRect().width;
       const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      track.style.transition = animate ? "transform 0.45s var(--ease)" : "none";
       track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
+      if (!animate) {
+        track.getBoundingClientRect();
+        track.style.transition = "transform 0.45s var(--ease)";
+      }
+    }
+
+    function updateUi() {
+      logicalIndex = isLoopable()
+        ? ((logicalIndex % total) + total) % total
+        : 0;
 
       dots.forEach((dot, dotIndex) => {
-        const active = dotIndex === index;
+        const active = dotIndex === logicalIndex;
         dot.classList.toggle("is-active", active);
-        dot.disabled = dotIndex > maxIndex;
-        dot.hidden = dotIndex > maxIndex;
+        dot.disabled = !isLoopable() && dotIndex > 0;
+        dot.hidden = !isLoopable() && dotIndex > 0;
       });
     }
 
-    prev.addEventListener("click", () => {
-      index = index <= 0 ? getMaxIndex() : index - 1;
-      update();
+    function rebuild() {
+      const nextVisibleCount = getVisibleCount();
+      if (visibleCount === nextVisibleCount && slides.length) {
+        currentIndex = logicalIndex + cloneCount;
+        moveTo(currentIndex, false);
+        updateUi();
+        return;
+      }
+
+      visibleCount = nextVisibleCount;
+      cloneCount = isLoopable() ? Math.min(visibleCount, total) : 0;
+      track.innerHTML = "";
+
+      const head = templates.slice(-cloneCount).map((markup) => createSlide(markup, true));
+      const body = templates.map((markup) => createSlide(markup));
+      const tail = templates.slice(0, cloneCount).map((markup) => createSlide(markup, true));
+
+      [...head, ...body, ...tail].forEach((slide) => track.appendChild(slide));
+      slides = Array.from(track.children);
+      logicalIndex = isLoopable()
+        ? ((logicalIndex % total) + total) % total
+        : 0;
+      currentIndex = isLoopable() ? logicalIndex + cloneCount : logicalIndex;
+      buildDots();
+      moveTo(currentIndex, false);
+      updateUi();
+    }
+
+    function step(direction) {
+      if (isAnimating || !slides.length) return;
+      if (!isLoopable()) return;
+      isAnimating = true;
+      logicalIndex = direction > 0
+        ? (logicalIndex >= total - 1 ? 0 : logicalIndex + 1)
+        : (logicalIndex <= 0 ? total - 1 : logicalIndex - 1);
+      currentIndex += direction;
+      moveTo(currentIndex, true);
+      updateUi();
+    }
+
+    prev.addEventListener("click", () => step(-1));
+    next.addEventListener("click", () => step(1));
+
+    track.addEventListener("transitionend", (event) => {
+      if (event.target !== track || event.propertyName !== "transform" || !isAnimating) return;
+      isAnimating = false;
+
+      if (currentIndex < cloneCount) {
+        currentIndex = total + currentIndex;
+        moveTo(currentIndex, false);
+      } else if (currentIndex >= total + cloneCount) {
+        currentIndex = currentIndex - total;
+        moveTo(currentIndex, false);
+      }
     });
 
-    next.addEventListener("click", () => {
-      index = index >= getMaxIndex() ? 0 : index + 1;
-      update();
-    });
-
-    window.addEventListener("resize", update);
-    update();
+    window.addEventListener("resize", rebuild);
+    rebuild();
   });
 }
 
