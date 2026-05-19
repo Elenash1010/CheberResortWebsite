@@ -211,11 +211,19 @@
         </div>
         <div class="voucher-card__body">
           <h3>Антистресс</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>12</span>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>от 1 до 6 дней</span><span>12</span>
+            </div>
           </div>
-          <div class="voucher-card__price"><span>от</span> 27 100 ₽ <em>/ сутки</em></div>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>пансион для взрослых и детей</span>
+            </div>
+          </div>
+          <div class="voucher-card__price"><span>от</span> 4100 ₽ <em>/ сутки</em></div>
           <p>Подходит для перезагрузки, восстановления сна и снижения напряжения в коротком или среднем формате.</p>
         </div>
       </a>
@@ -226,9 +234,18 @@
         </div>
         <div class="voucher-card__body">
           <h3>Оздоровительная</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>10+</span>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>7</span>
+              <span>10+</span>
+            </div>
+          </div>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>пансион для взрослых и детей</span>
+            </div>
           </div>
           <div class="voucher-card__price"><span>от</span> 4900 ₽ <em>/ день</em></div>
           <p>Базовый формат для профилактики и восстановления: проживание, питание, диагностика и поддерживающие процедуры.</p>
@@ -241,9 +258,17 @@
         </div>
         <div class="voucher-card__body">
           <h3>Мать и дитя</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>7+</span>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>7+</span>
+            </div>
+          </div>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>пансион для взрослых и детей</span>
+            </div>
           </div>
           <div class="voucher-card__price"><span>от</span> 7650 ₽ <em>/ день</em></div>
           <p>Семейная программа для совместного пребывания, детских опций, питания и комфортного отдыха родителя с ребенком.</p>
@@ -256,9 +281,17 @@
         </div>
         <div class="voucher-card__body">
           <h3>Детская лечебно-оздоровительная</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>14</span>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>14</span>
+            </div>
+          </div>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>дневное пребывание без ночевки</span>
+            </div>
           </div>
           <div class="voucher-card__price"><span>от</span> 3680 ₽ <em>/ день</em></div>
           <p>Санаторный режим для детей с оздоровительной программой, проживанием, питанием и сопровождением.</p>
@@ -267,9 +300,9 @@
     </div>
   </div>
   <div class="vouchers-controls page-main">
-    <button class="vouchers-arrow" type="button" data-vouchers-prev aria-label="Предыдущие путевки">←</button>
+    <button class="vouchers-arrow" type="button" data-vouchers-prev aria-label="Предыдущие курсовки">←</button>
     <div class="vouchers-dots" data-vouchers-dots></div>
-    <button class="vouchers-arrow" type="button" data-vouchers-next aria-label="Следующие путевки">→</button>
+    <button class="vouchers-arrow" type="button" data-vouchers-next aria-label="Следующие курсовки">→</button>
   </div>
 </section>
 
@@ -282,96 +315,121 @@
   </div>
   <div class="vouchers-slider">
     <div class="vouchers-track" data-vouchers-track>
-      <article class="voucher-card" data-voucher-slide>
+      <a class="voucher-card voucher-card--link" data-voucher-slide href="course-wellness.html">
         <div class="voucher-card__media voucher-card__media--classic">
-          <img src="assets/img/cheber-fasad.png" alt="Классическая путевка в санатории ЧЕБЕР">
-          <a class="voucher-card__cta" href="courses.html" aria-label="Подробнее о классической путевке">↗</a>
+          <img src="assets/img/cheber-fasad.png" alt="Оздоровительная курсовка в санатории ЧЕБЕР">
+          <span class="voucher-card__cta" aria-hidden="true">↗</span>
         </div>
         <div class="voucher-card__body">
-          <h3>Классическая</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>7</span><span>10</span><span>14</span><span>21</span><span>28</span>
+          <h3>Оздоровительная</h3>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>10+</span>
+            </div>
           </div>
-          <div class="voucher-card__price"><span>от</span> 30 700 ₽ <em>/ сутки</em></div>
-          <p>Базовая программа для знакомства с санаторием: проживание, питание и восстановительные процедуры.</p>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>пансион для взрослых и детей</span>
+            </div>
+          </div>
+          <div class="voucher-card__price"><span>от</span> 4250 ₽ <em>/ день</em></div>
+          <p>Дневное пребывание без ночевки.</p>
         </div>
-      </article>
-      <article class="voucher-card" data-voucher-slide>
+      </a>
+      <a class="voucher-card voucher-card--link" data-voucher-slide href="course-children.html">
         <div class="voucher-card__media voucher-card__media--family">
-          <img src="assets/img/cheber-fasad.png" alt="Семейная путевка в санатории ЧЕБЕР">
-          <a class="voucher-card__cta" href="courses.html" aria-label="Подробнее о семейной путевке">↗</a>
+          <img src="assets/img/cheber-fasad.png" alt="Детская курсовка в санатории ЧЕБЕР">
+          <span class="voucher-card__cta" aria-hidden="true">↗</span>
         </div>
         <div class="voucher-card__body">
-          <h3>Семейная</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>5</span><span>7</span><span>10</span><span>14</span><span>21</span>
+          <h3>Детская</h3>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>10</span>
+            </div>
           </div>
-          <div class="voucher-card__price"><span>от</span> 28 400 ₽ <em>/ сутки</em></div>
-          <p>Комфортный формат для отдыха с близкими: проживание, питание и мягкая оздоровительная программа.</p>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>пансион для взрослых и детей</span>
+            </div>
+          </div>
+          <div class="voucher-card__price">по запросу</div>
+          <p>Оздоровительный формат для ребенка с гибким графиком посещений и подбором процедур по возрасту.</p>
         </div>
-      </article>
-      <article class="voucher-card" data-voucher-slide>
+      </a>
+      <a class="voucher-card voucher-card--link" data-voucher-slide href="course-pension.html">
         <div class="voucher-card__media voucher-card__media--antistress">
-          <img src="assets/img/cheber-fasad.png" alt="Антистресс путевка в санатории ЧЕБЕР">
-          <a class="voucher-card__cta" href="courses.html" aria-label="Подробнее об антистресс путевке">↗</a>
+          <img src="assets/img/cheber-fasad.png" alt="Пенсионная курсовка в санатории ЧЕБЕР">
+          <span class="voucher-card__cta" aria-hidden="true">↗</span>
         </div>
         <div class="voucher-card__body">
-          <h3>Антистресс</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>3</span><span>5</span><span>7</span><span>10</span><span>14</span>
+          <h3>Пенсионная</h3>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>10</span>
+            </div>
           </div>
-          <div class="voucher-card__price"><span>от</span> 27 100 ₽ <em>/ сутки</em></div>
-          <p>Подходит для перезагрузки, восстановления сна и снижения напряжения в коротком или среднем формате.</p>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>пансион для взрослых и детей</span>
+            </div>
+          </div>
+          <div class="voucher-card__price">по запросу</div>
+          <p>Формат для гостей старшего возраста с акцентом на понятные условия и доступный режим профилактики.</p>
         </div>
-      </article>
-      <article class="voucher-card" data-voucher-slide>
+      </a>
+      <a class="voucher-card voucher-card--link" data-voucher-slide href="course-recovery.html">
         <div class="voucher-card__media voucher-card__media--respire">
-          <img src="assets/img/cheber-fasad.png" alt="Путевка для дыхательной системы в санатории ЧЕБЕР">
-          <a class="voucher-card__cta" href="courses.html" aria-label="Подробнее о путевке для дыхательной системы">↗</a>
+          <img src="assets/img/cheber-fasad.png" alt="Курсовка Восстановление в санатории ЧЕБЕР">
+          <span class="voucher-card__cta" aria-hidden="true">↗</span>
         </div>
         <div class="voucher-card__body">
-          <h3>Дыхательная</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>7</span><span>10</span><span>14</span><span>18</span><span>21</span>
+          <h3>Восстановление</h3>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>10</span>
+            </div>
           </div>
-          <div class="voucher-card__price"><span>от</span> 29 500 ₽ <em>/ сутки</em></div>
-          <p>Формат с акцентом на дыхательную систему, профилактику сезонных состояний и спокойный режим восстановления.</p>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>пансион для взрослых и детей</span>
+            </div>
+          </div>
+          <div class="voucher-card__price">по запросу</div>
+          <p>Последовательный курс восстановительных процедур без проживания с гибким графиком посещений.</p>
         </div>
-      </article>
-      <article class="voucher-card" data-voucher-slide>
+      </a>
+      <a class="voucher-card voucher-card--link" data-voucher-slide href="course-evening.html">
         <div class="voucher-card__media voucher-card__media--digestive">
-          <img src="assets/img/cheber-fasad.png" alt="Путевка для органов пищеварения в санатории ЧЕБЕР">
-          <a class="voucher-card__cta" href="courses.html" aria-label="Подробнее о путевке для органов пищеварения">↗</a>
+          <img src="assets/img/cheber-fasad.png" alt="Вечерняя курсовка в санатории ЧЕБЕР">
+          <span class="voucher-card__cta" aria-hidden="true">↗</span>
         </div>
         <div class="voucher-card__body">
-          <h3>Пищеварение</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>7</span><span>10</span><span>14</span><span>21</span><span>28</span>
+          <h3>Вечерняя</h3>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Количество дней:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>10</span>
+            </div>
           </div>
-          <div class="voucher-card__price"><span>от</span> 31 200 ₽ <em>/ сутки</em></div>
-          <p>Санаторная программа с фокусом на профилактику и поддержку органов пищеварения и диетический режим.</p>
-        </div>
-      </article>
-      <article class="voucher-card" data-voucher-slide>
-        <div class="voucher-card__media voucher-card__media--relax">
-          <img src="assets/img/cheber-fasad.png" alt="Путевка выходного дня в санатории ЧЕБЕР">
-          <a class="voucher-card__cta" href="courses.html" aria-label="Подробнее о путевке выходного дня">↗</a>
-        </div>
-        <div class="voucher-card__body">
-          <h3>Выходного дня</h3>
-          <span class="voucher-card__label">Количество дней:</span>
-          <div class="voucher-card__days">
-            <span>2</span><span>3</span><span>4</span><span>5</span><span>7</span>
+          <div class="voucher-card__meta-row">
+            <span class="voucher-card__label">Формат:</span>
+            <div class="voucher-card__days voucher-card__days--single-line">
+              <span>пансион для взрослых и детей</span>
+            </div>
           </div>
-          <div class="voucher-card__price"><span>от</span> 24 900 ₽ <em>/ сутки</em></div>
-          <p>Короткий формат отдыха для быстрой смены ритма, восстановления и комфортного пребывания в санатории.</p>
+          <div class="voucher-card__price">по запросу</div>
+          <p>Формат для тех, кому удобно проходить оздоровительные процедуры в вечернее время без проживания.</p>
         </div>
-      </article>
+      </a>
     </div>
   </div>
   <div class="vouchers-controls page-main">

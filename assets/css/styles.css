@@ -4491,11 +4491,31 @@ select,
   color: rgba(255,255,255,0.86);
 }
 
+.voucher-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.voucher-card__meta-row .voucher-card__label {
+  margin-top: 0;
+  flex: 0 0 auto;
+}
+
+.voucher-card__meta-row .voucher-card__days {
+  margin-top: 0;
+}
+
 .voucher-card__days {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
   margin-top: 8px;
+}
+
+.voucher-card__days--single-line {
+  flex-wrap: nowrap;
 }
 
 .voucher-card__days span {
