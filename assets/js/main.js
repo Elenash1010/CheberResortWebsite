@@ -13,7 +13,14 @@
   ["contacts.html", "Контакты", "Телефоны, адрес, почта, мессенджеры и карта"],
 ];
 
-const searchItems = navItems.map(([href, label, description]) => ({ href, label, description }));
+const searchItems = [
+  ...navItems.map(([href, label, description]) => ({ href, label, description })),
+  {
+    href: "physiotherapy.html",
+    label: "Физиолечение",
+    description: "Аппаратные физиопроцедуры, стоимость сеанса и запись по назначению врача",
+  },
+];
 const homeHeaderLinks = [
   ["about-cheber", "О санатории", "Санаторий «Чебер» — современное пространство здоровья и восстановления"],
   ["special-offers", "Акции", "Специальные предложения"],

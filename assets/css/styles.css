@@ -5087,12 +5087,189 @@ select,
   height: auto;
 }
 
+.physiotherapy-section {
+  margin-top: -18px;
+}
+
+.physiotherapy-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.physiotherapy-head h2 {
+  margin: 0;
+  color: #26384B;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.05;
+}
+
+.physiotherapy-head p {
+  max-width: 420px;
+  margin: 0;
+  color: #5D7084;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.physiotherapy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.physiotherapy-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: 1px solid #E3EBF3;
+  background: #FFFFFF;
+  box-shadow: none;
+  appearance: none;
+  text-align: left;
+}
+
+.physiotherapy-card .voucher-card__media {
+  display: block;
+}
+
+.physiotherapy-card .voucher-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(56, 105, 172, 0.05);
+}
+
+.physiotherapy-card .voucher-card__body {
+  flex: 1;
+  display: grid;
+  grid-template-rows: minmax(52px, auto) minmax(32px, auto) minmax(44px, auto);
+  align-content: start;
+  gap: 12px;
+  background: #F2F7FC;
+  color: #6E7C8C;
+  padding: 24px 26px 26px;
+}
+
+.physiotherapy-card .voucher-card__price,
+.physiotherapy-card .voucher-card__price span,
+.physiotherapy-card .voucher-card__price em {
+  color: #3869AC;
+}
+
+.physiotherapy-card__title {
+  align-self: center;
+  color: #26384B;
+  font-size: 21px;
+  line-height: 1.12;
+  font-weight: 800;
+}
+
+.physiotherapy-card__button {
+  width: 100%;
+  min-height: 42px;
+  justify-content: center;
+  padding: 10px 14px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.physiotherapy-modal {
+  width: min(78vw, 1240px);
+  height: 100vh;
+  max-height: 100vh;
+  margin-left: auto;
+  border-radius: 26px 0 0 26px;
+  background: #F8FBFE;
+  transform: translateX(100%);
+}
+
+.voucher-modal:has(.physiotherapy-modal) {
+  place-items: stretch end;
+  padding: 0;
+}
+
+.physiotherapy-modal__image {
+  height: clamp(190px, 26vw, 280px);
+  border-radius: 26px 0 0 0;
+}
+
+.physiotherapy-modal .voucher-modal__content {
+  border-radius: 0 0 0 26px;
+}
+
+.physiotherapy-modal--with-image .voucher-modal__content {
+  border-radius: 0 0 0 26px;
+}
+
+.physiotherapy-modal h2 {
+  margin: 0 52px 16px 0;
+}
+
+.physiotherapy-modal h3 {
+  margin: 20px 0 8px;
+  color: #26384B;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.physiotherapy-modal p {
+  margin: 0;
+  color: #465A70;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.physiotherapy-modal p + p {
+  margin-top: 14px;
+}
+
+.physiotherapy-modal ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding-left: 20px;
+  color: #465A70;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.physiotherapy-modal__footer {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #D8E4F0;
+}
+
+.physiotherapy-modal__price {
+  color: #26384B !important;
+  font-weight: 700;
+}
+
+.physiotherapy-modal__price strong {
+  color: #3869AC;
+  font-size: 18px;
+}
+
+.physiotherapy-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 @media (max-width: 1100px) {
   .vouchers-track {
     grid-auto-columns: calc((100% - 24px) / 2);
   }
 
-  .vouchers-page-grid {
+  .vouchers-page-grid,
+  .physiotherapy-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -5108,8 +5285,15 @@ select,
     grid-auto-columns: 100%;
   }
 
-  .vouchers-page-grid {
+  .vouchers-page-grid,
+  .physiotherapy-grid {
     grid-template-columns: 1fr;
+  }
+
+  .physiotherapy-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .voucher-modal {
@@ -5187,6 +5371,32 @@ select,
   .voucher-plain-shell .site-footer {
     margin-top: 0;
     margin-bottom: 112px;
+  }
+
+  .physiotherapy-modal__image {
+    border-radius: 20px 0 0 0;
+  }
+
+  .physiotherapy-modal .voucher-modal__content {
+    border-radius: 0;
+  }
+
+  .physiotherapy-modal--with-image .voucher-modal__content {
+    border-radius: 0;
+  }
+
+  .physiotherapy-modal h2 {
+    margin-right: 42px;
+  }
+
+  .physiotherapy-modal {
+    width: min(94vw, 680px);
+    border-radius: 20px 0 0 20px;
+  }
+
+  .physiotherapy-modal__actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -5366,7 +5576,7 @@ select,
   transition: transform 0.45s var(--ease);
 }
 
-.medical-tile[href$="#physiotherapy"] img { object-position: center 42%; }
+.medical-tile[href$="physiotherapy.html"] img { object-position: center 42%; }
 .medical-tile[href$="#baths"] img { object-position: center 58%; }
 .medical-tile[href$="#climate"] img { object-position: center 30%; }
 .medical-tile[href$="#massage"] img { object-position: center 66%; }
