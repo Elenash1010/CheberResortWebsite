@@ -5577,7 +5577,7 @@ select,
 }
 
 .medical-tile[href$="physiotherapy.html"] img { object-position: center 42%; }
-.medical-tile[href$="#baths"] img { object-position: center 58%; }
+.medical-tile[href$="baths.html"] img { object-position: center 58%; }
 .medical-tile[href$="#climate"] img { object-position: center 30%; }
 .medical-tile[href$="#massage"] img { object-position: center 66%; }
 
