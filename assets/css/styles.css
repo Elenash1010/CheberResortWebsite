@@ -5940,10 +5940,10 @@ select,
   min-height: 540px;
 }
 
-.pool-showcase-grid .medical-tile[href$="#free-swim"] img { object-position: center 48%; }
-.pool-showcase-grid .medical-tile[href$="#coach-swim"] img { object-position: center 58%; }
-.pool-showcase-grid .medical-tile[href$="#children-swim"] img { object-position: center 30%; }
-.pool-showcase-grid .medical-tile[href$="#flipper-school"] img { object-position: center 66%; }
+.pool-showcase-grid .medical-tile[href$="pool-free-swim.html"] img { object-position: center 48%; }
+.pool-showcase-grid .medical-tile[href$="pool-coach-swim.html"] img { object-position: center 58%; }
+.pool-showcase-grid .medical-tile[href$="pool-children-swim.html"] img { object-position: center 30%; }
+.pool-showcase-grid .medical-tile[href$="flipper-school.html"] img { object-position: center 66%; }
 
 @media (max-width: 1180px) {
   .pool-showcase-layout {
