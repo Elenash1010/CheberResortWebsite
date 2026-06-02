@@ -8028,3 +8028,44 @@ body.inner-page-shell::before {
   border-top-right-radius: 0 !important;
 }
 
+/* Full-width footer on every page */
+.site-footer {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.footer-wrap {
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.brand-logo {
+  display: block;
+  object-fit: contain;
+}
+
+.brand-logo--header {
+  width: 280px;
+  height: 88px;
+}
+
+.brand-logo--footer {
+  width: 420px;
+  height: 132px;
+}
+
+@media (max-width: 680px) {
+  .brand-logo--header {
+    width: 220px;
+    height: 70px;
+  }
+
+  .brand-logo--footer {
+    width: min(100%, 340px);
+    height: 108px;
+  }
+}
+

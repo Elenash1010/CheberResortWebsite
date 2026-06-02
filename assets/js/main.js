@@ -511,10 +511,7 @@ function renderShell() {
       <div class="header-wrap header-wrap-premium">
         <div class="header-top header-top-premium">
           <a class="brand brand-premium" href="index.html" aria-label="На главную">
-            <span class="brand-mark brand-mark-premium">ЧБ</span>
-            <span class="brand-copy">
-              <strong>ЧЕБЕР</strong>
-            </span>
+            <img class="brand-logo brand-logo--header" src="assets/img/cheber-logo.png" alt="ЧЕБЕР — курорт в сердце Удмуртии">
           </a>
           <nav class="header-inline-nav" aria-label="Основная навигация">
             ${buildHeaderNav(page)}
@@ -553,11 +550,7 @@ function renderShell() {
         <div class="footer-grid">
           <div>
             <a class="brand brand-premium" href="index.html" aria-label="На главную">
-              <span class="brand-mark brand-mark-premium">ЧБ</span>
-              <span class="brand-copy">
-                <strong>ЧЕБЕР</strong>
-                <span>Премиальный санаторный опыт, лечение, проживание и семейный отдых</span>
-              </span>
+              <img class="brand-logo brand-logo--footer" src="assets/img/cheber-logo.png" alt="ЧЕБЕР — курорт в сердце Удмуртии">
             </a>
             <p class="lead-text" style="margin-top: 18px;">
               Статический сайт собран как визуальная продажа санатория: крупные смысловые блоки, richer interaction,
