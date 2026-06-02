@@ -14,7 +14,8 @@ Simplify the primary header navigation and improve its readability.
 - Use `Raleway` for primary navigation links and the `Еще` toggle.
 - Use a `700` font weight, `0.02em` letter spacing, and `0.08em` word spacing
   for the primary navigation.
-- Use a `22px` gap between primary navigation items.
+- Distribute primary navigation items with `space-between` across the available
+  header width and keep a `16px` minimum gap.
 - Keep navigation links white while the header is layered over a hero image.
 - Use the brand blue `#3869AC` for navigation links after scrolling and on
   light header backgrounds.
