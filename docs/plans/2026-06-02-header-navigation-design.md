@@ -16,7 +16,7 @@ Simplify the primary header navigation and improve its readability.
   for the primary navigation.
 - Distribute primary navigation items with `space-between` across the available
   header width and keep a `16px` minimum gap.
-- Reduce the header logo to `240px` by `76px`, with a `190px` by `60px`
+- Reduce the header logo to `216px` by `68px`, with a `172px` by `54px`
   mobile size.
 - Render the existing blue PNG logo as white over the home hero with a CSS
   filter, then restore its original blue color after scrolling.
