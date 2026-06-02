@@ -10,6 +10,7 @@ Simplify the primary header navigation and improve its readability.
   into the beginning of the `Еще` dropdown.
 - Keep all links available in the mobile navigation.
 - Increase primary navigation text to `16px`.
+- Use `Raleway` for primary navigation links and the `Еще` toggle.
 - Keep navigation links white while the header is layered over a hero image.
 - Use the brand blue `#3869AC` for navigation links after scrolling and on
   light header backgrounds.
