@@ -20,6 +20,8 @@ Simplify the primary header navigation and improve its readability.
   mobile size.
 - Render the existing blue PNG logo as white over the home hero with a CSS
   filter, then restore its original blue color after scrolling.
+- Reduce the header booking CTA padding to `11px 18px` without changing other
+  site buttons.
 - Keep navigation links white while the header is layered over a hero image.
 - Use the brand blue `#3869AC` for navigation links after scrolling and on
   light header backgrounds.
