@@ -11,6 +11,8 @@ Simplify the primary header navigation and improve its readability.
 - Keep all links available in the mobile navigation.
 - Increase primary navigation text to `16px`.
 - Use `Raleway` for primary navigation links and the `Еще` toggle.
+- Use a `700` font weight, `0.02em` letter spacing, and `0.08em` word spacing
+  for the primary navigation.
 - Keep navigation links white while the header is layered over a hero image.
 - Use the brand blue `#3869AC` for navigation links after scrolling and on
   light header backgrounds.
