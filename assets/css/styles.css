@@ -1,4 +1,6 @@
-﻿:root {
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Raleway:wght@400;500;600;700&display=swap");
+
+:root {
   --bg: #FFFFFF;
   --bg-elevated: rgba(255, 253, 252, 0.92);
   --bg-strong: #FFFFFF;
@@ -97,13 +99,22 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   color: var(--text);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.58), transparent 18%),
     var(--bg);
   line-height: 1.6;
   min-width: 320px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", Arial, sans-serif !important;
 }
 
 body::before {
@@ -2228,7 +2239,7 @@ box-shadow: none;
 
 .home-hero-brand-lockup h1 {
   margin: 0;
-  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: clamp(4rem, 9vw, 6.3rem);
   line-height: 0.92;
   font-weight: 800;
@@ -2899,7 +2910,7 @@ body {
 }
 
 .cheber-intro-copy h2 {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-weight: 700;
   font-size: clamp(2.6rem, 3.4vw, 3.5rem);
   line-height: 1.05;
@@ -3034,7 +3045,7 @@ body {
 }
 
 .cheber-intro-copy h2 {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-weight: 700;
   font-size: clamp(2.2rem, 2.65vw, 3rem);
   line-height: 1.06;
@@ -3158,7 +3169,7 @@ body {
 }
 
 .cheber-intro-copy h2 {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 42px;
   line-height: 1.12;
   font-weight: 700;
@@ -3299,7 +3310,7 @@ body {
   width: 100%;
   max-width: none;
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 42px;
   line-height: 1.18;
   font-weight: 700;
@@ -4034,7 +4045,7 @@ select,
   display: inline-flex;
   align-items: baseline;
   gap: 4px;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 42px;
   line-height: 1;
   font-weight: 700;
@@ -4127,7 +4138,7 @@ select,
 
 .special-offers-head h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
@@ -4233,7 +4244,7 @@ select,
 
 .special-offer-card__copy h3 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.35;
   font-weight: 700;
@@ -4372,7 +4383,7 @@ select,
 
 .vouchers-head h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
@@ -4478,7 +4489,7 @@ select,
 
 .voucher-card__body h3 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 22px;
   line-height: 1.08;
   font-weight: 700;
@@ -4858,7 +4869,7 @@ select,
 .voucher-modal__content h2 {
   margin: 0;
   color: #26384B;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.05;
 }
@@ -4983,7 +4994,7 @@ select,
 .voucher-modal__text-block h3 {
   margin: 0 0 10px;
   color: #26384B;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.2;
   font-weight: 800;
@@ -5067,7 +5078,7 @@ select,
 .voucher-modal__panel--page .voucher-modal__content h1 {
   margin: 0;
   color: #26384B;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.05;
 }
@@ -5102,7 +5113,7 @@ select,
 .physiotherapy-head h2 {
   margin: 0;
   color: #26384B;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: clamp(26px, 3vw, 38px);
   line-height: 1.05;
 }
@@ -5483,7 +5494,7 @@ select,
 
 .medical-showcase-head h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
@@ -5526,7 +5537,7 @@ select,
 .medical-showcase-info strong {
   display: block;
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 22px;
   line-height: 1.2;
   font-weight: 700;
@@ -5596,7 +5607,7 @@ select,
   bottom: 22px;
   z-index: 2;
   color: #fff;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 700;
@@ -5628,7 +5639,7 @@ select,
 
 .medical-category-card h2 {
   margin: 0 0 18px;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.25;
   font-weight: 700;
@@ -5694,7 +5705,7 @@ select,
 
 .experts-head h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
@@ -5823,7 +5834,7 @@ select,
 
 .expert-card__body h3 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.2;
   font-weight: 700;
@@ -5983,7 +5994,7 @@ select,
 
 .room-comfort-head h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
@@ -6183,7 +6194,7 @@ select,
 
 .infrastructure-head h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 32px;
   line-height: 1.08;
   font-weight: 700;
@@ -6253,7 +6264,7 @@ select,
 
 .infra-card__content h3 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.15;
   font-weight: 700;
@@ -6353,7 +6364,7 @@ select,
 
 .guest-reviews-head h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 22px;
   line-height: 1.15;
   font-weight: 700;
@@ -6459,7 +6470,7 @@ select,
 
 .guest-review-card__body h3 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.15;
   font-weight: 700;
@@ -6704,7 +6715,7 @@ select,
 
 .faq-head h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
@@ -6928,7 +6939,7 @@ select,
 
 .contacts-feature-card h2 {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 26px;
   line-height: 1.2;
   font-weight: 700;
@@ -7676,7 +7687,7 @@ body.inner-page-shell::before {
 .inner-page-shell .page-hero-copy h1 {
   margin: 0;
   max-width: none;
-  font-family: "Segoe UI", Arial, sans-serif !important;
+  font-family: "Raleway", Arial, sans-serif !important;
   font-size: 42px;
   line-height: 1.1;
   font-weight: 700;
@@ -7745,7 +7756,7 @@ body.inner-page-shell::before {
   display: block;
   margin: 0;
   color: inherit;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
 }
 
 .inner-page-shell .page-hero-aside-card h2 {
@@ -7837,14 +7848,18 @@ body.inner-page-shell::before {
 }
 
 .inner-page-shell .card h3,
-.inner-page-shell .quote-card blockquote,
 .inner-page-shell .info-panel h3,
 .inner-page-shell .timeline-step h3,
 .inner-page-shell .doc-item h3,
 .inner-page-shell .contact-panel h3,
 .inner-page-shell .medical-category-card h2 {
   color: #1E2630;
-  font-family: "Segoe UI", Arial, sans-serif !important;
+  font-family: "Raleway", Arial, sans-serif !important;
+}
+
+.inner-page-shell .quote-card blockquote {
+  color: #1E2630;
+  font-family: "PT Sans", Arial, sans-serif !important;
 }
 
 .inner-page-shell .card p,
@@ -8048,8 +8063,8 @@ body.inner-page-shell::before {
 }
 
 .brand-logo--header {
-  width: 280px;
-  height: 88px;
+  width: 216px;
+  height: 68px;
 }
 
 .brand-logo--footer {
@@ -8059,13 +8074,62 @@ body.inner-page-shell::before {
 
 @media (max-width: 680px) {
   .brand-logo--header {
-    width: 220px;
-    height: 70px;
+    width: 172px;
+    height: 54px;
   }
 
   .brand-logo--footer {
     width: min(100%, 340px);
     height: 108px;
   }
+}
+
+/* Home hero logo states */
+.home-page-shell .brand-logo--header {
+  filter: brightness(0) invert(1);
+  transition: filter 0.35s ease;
+}
+
+.home-page-shell .site-header.is-scrolled .brand-logo--header {
+  filter: none;
+}
+
+/* Final header navigation palette and sizing */
+.header-inline-nav .nav-link,
+.header-inline-nav .nav-link--toggle {
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
+}
+
+.header-inline-nav {
+  width: 100%;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.btn {
+  min-height: auto !important;
+  padding: 10px 16px !important;
+}
+
+.header-cta {
+  padding: 9px 15px !important;
+}
+
+.home-page-shell .header-inline-nav .nav-link,
+.home-page-shell .header-inline-nav .nav-link--toggle {
+  color: #FFFFFF !important;
+}
+
+.home-page-shell .site-header.is-scrolled .header-inline-nav .nav-link,
+.home-page-shell .site-header.is-scrolled .header-inline-nav .nav-link--toggle,
+.inner-page-shell .header-inline-nav .nav-link,
+.inner-page-shell .header-inline-nav .nav-link--toggle,
+.voucher-plain-shell .header-inline-nav .nav-link,
+.voucher-plain-shell .header-inline-nav .nav-link--toggle {
+  color: #3869AC !important;
 }
 

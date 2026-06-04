@@ -58,15 +58,15 @@ const searchItems = [
 ];
 const homeHeaderLinks = [
   ["about-cheber", "О санатории", "Санаторий «Чебер» — современное пространство здоровья и восстановления"],
-  ["special-offers", "Акции", "Специальные предложения"],
   ["vouchers", "Путевки", "Путевки: интенсивность и длительность"],
   ["courses", "Курсовки", "Курсовки"],
   ["therapy-procedures", "Терапия и процедуры", "Терапия и процедуры"],
-  ["specialists", "Специалисты", "Наши специалисты"],
   ["pool-sauna", "Бассейн и сауна", "Бассейн и сауна"],
   ["children-programs", "Программы для детей", "Программы для детей"],
 ];
 const homeMoreLinks = [
+  ["special-offers", "Акции", "Специальные предложения"],
+  ["specialists", "Специалисты", "Наши специалисты"],
   ["comfort-rooms", "Забронировать номер", "Комфортные номера"],
   ["infrastructure", "Инфраструктура", "Инфраструктура"],
   ["extra-features", "Бронирование под мероприятия", "Дополнительные возможности"],
@@ -469,9 +469,6 @@ function buildHeaderMoreMenu(page) {
   `;
 }
 
-function buildHeaderContactsLink(page) {
-  return `<a class="nav-link" href="${buildHomeAnchorHref(page, "contacts-block")}">Контакты</a>`;
-}
 function buildMegaLinks(page) {
   return navItems
     .map(([href, label, description]) => {
@@ -516,7 +513,6 @@ function renderShell() {
           <nav class="header-inline-nav" aria-label="Основная навигация">
             ${buildHeaderNav(page)}
             ${buildHeaderMoreMenu(page)}
-            ${buildHeaderContactsLink(page)}
           </nav>
           <div class="header-utility">
             <a class="btn btn-primary header-cta" href="contacts.html">Забронировать / связаться</a>
