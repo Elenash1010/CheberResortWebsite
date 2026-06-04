@@ -2224,6 +2224,14 @@ box-shadow: none;
   justify-items: center;
 }
 
+.home-hero-logo {
+  display: block;
+  width: min(1500px, 98vw);
+  max-height: 540px;
+  filter: brightness(0) invert(1);
+  object-fit: contain;
+}
+
 .home-hero-brand-mark {
   display: inline-flex;
   align-items: center;
@@ -7314,7 +7322,7 @@ select,
 }
 
 .home-hero-description {
-  margin-top: 18px;
+  margin-top: -64px;
 }
 
 @media (max-width: 920px) {
@@ -8101,13 +8109,18 @@ body.inner-page-shell::before {
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  word-spacing: 0.08em;
+  word-spacing: 0;
 }
 
 .header-inline-nav {
+  display: grid;
+  grid-template-columns: repeat(7, max-content);
+  justify-self: stretch;
   width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
   justify-content: space-between;
-  gap: 16px;
+  gap: 0;
 }
 
 .btn {
