@@ -7978,6 +7978,85 @@ body.inner-page-shell::before {
   margin-top: 20px;
 }
 
+.medical-price-main {
+  padding-top: 34px;
+  padding-bottom: 56px;
+}
+
+.medical-price-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 34px 0 0;
+}
+
+.medical-price-page__head {
+  margin-bottom: 34px;
+}
+
+.medical-price-page__head span {
+  display: block;
+  margin-bottom: 10px;
+  color: #3869AC;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.medical-price-page__head h1 {
+  margin: 0;
+  color: #1E2630;
+  font-family: "Raleway", Arial, sans-serif !important;
+  font-size: 42px;
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+.medical-price-list {
+  display: grid;
+  gap: 34px;
+}
+
+.medical-price-group h2 {
+  margin: 0 0 12px;
+  color: #3869AC;
+  font-family: "Raleway", Arial, sans-serif !important;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.medical-price-table {
+  display: grid;
+  border-top: 1px solid #DCE6F0;
+}
+
+.medical-price-table > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(105px, max-content);
+  gap: 22px;
+  align-items: baseline;
+  padding: 12px 24px;
+  border-bottom: 1px solid #DCE6F0;
+}
+
+.medical-price-table > div:nth-child(even) {
+  background: #F2F7FC;
+}
+
+.medical-price-table span {
+  color: #1E2630;
+  line-height: 1.45;
+}
+
+.medical-price-table strong {
+  color: #1E2630;
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: right;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .inner-page-shell .card:hover,
   .inner-page-shell .quote-card:hover,
