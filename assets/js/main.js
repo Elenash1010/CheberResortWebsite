@@ -548,18 +548,14 @@ function renderShell() {
             <a class="brand brand-premium" href="index.html" aria-label="На главную">
               <img class="brand-logo brand-logo--footer" src="assets/img/cheber-logo.png" alt="ЧЕБЕР — курорт в сердце Удмуртии">
             </a>
-            <p class="lead-text" style="margin-top: 18px;">
-              Статический сайт собран как визуальная продажа санатория: крупные смысловые блоки, richer interaction,
-              понятные маршруты к программам и заметный акцент на доверие, медицину и комфорт проживания.
-            </p>
-          </div>
-          <div class="footer-links">
-            <strong>Ключевые разделы</strong>
-            <a href="programs.html">Программы</a>
-            <a href="vouchers.html">Путевки</a>
-            <a href="children.html">Программы для детей</a>
-            <a href="hotel.html">Гостиница</a>
-            <a href="offers.html">Акции</a>
+            <div class="footer-legal">
+              <p>Информация на сайте не является публичной офертой</p>
+              <p>
+                Заполняя форму обратной связи, в том числе указывая номер телефона на сайте или лендингах, либо подписываясь на рассылку, вы выражаете: согласие на получение рассылки посредством email любой информации курорта Чебер, выражаете своё согласие на обработку ваших персональных данных, в целях заключения и исполнения договора оказания санаторно-курортных и/или оздоровительных услуг, и/или платных медицинских услуг.
+              </p>
+              <p>Электронная почта для обращений с вопросом о своих персональных данных, в том числе об их удалении: <a href="mailto:info@cheberresot.ru">info@cheberresot.ru</a></p>
+              <p class="footer-legal__warning">ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ, НЕОБХОДИМА КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА.</p>
+            </div>
           </div>
           <div class="footer-links">
             <strong>Контакты</strong>
@@ -572,7 +568,7 @@ function renderShell() {
         </div>
         <div class="footer-note">
           <span>© <span data-year></span> Санаторий «ЧЕБЕР»</span>
-          <span>Premium visual system with Medical and Resort alternates</span>
+          <span>Информация о санаторно-курортных и медицинских услугах</span>
         </div>
       </div>
     `;

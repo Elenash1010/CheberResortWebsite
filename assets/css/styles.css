@@ -1039,7 +1039,7 @@ button {
   padding: 28px;
   border-radius: 32px;
   border: 1px solid var(--line);
-  background: rgba(255, 252, 247, 0.72);
+  background: #F2F7FC;
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -1047,7 +1047,7 @@ button {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 0.8fr;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 0.8fr);
   gap: 22px;
 }
 
@@ -1059,14 +1059,17 @@ button {
 .footer-links a { color: var(--muted); }
 
 .footer-note {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 0.8fr);
   gap: 16px;
   padding-top: 18px;
   margin-top: 18px;
   border-top: 1px solid var(--line);
   color: var(--muted);
-  flex-wrap: wrap;
+}
+
+.footer-note span:last-child {
+  grid-column: 2;
 }
 
 .sticky-contact-bar {
@@ -1135,7 +1138,13 @@ button {
   .feature-grid,
   .service-band,
   .footer-grid,
+  .footer-note,
   .page-hero-grid { grid-template-columns: 1fr; }
+
+  .footer-note span:last-child {
+    grid-column: auto;
+  }
+
   .cards-4,
   .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cards-3,
@@ -8155,8 +8164,32 @@ body.inner-page-shell::before {
 }
 
 .brand-logo--footer {
-  width: 420px;
-  height: 132px;
+  width: 216px;
+  height: 68px;
+}
+
+.footer-legal {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-legal p {
+  margin: 0;
+}
+
+.footer-legal a {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.footer-legal__warning {
+  color: #1E2630;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 680px) {
@@ -8166,8 +8199,8 @@ body.inner-page-shell::before {
   }
 
   .brand-logo--footer {
-    width: min(100%, 340px);
-    height: 108px;
+    width: 172px;
+    height: 54px;
   }
 }
 
