@@ -7507,6 +7507,21 @@ body::before {
   -webkit-backdrop-filter: blur(24px) saturate(110%) !important;
 }
 
+.home-page-shell .site-header.is-scrolled .header-cta {
+  background: #3869AC !important;
+  color: #FFFFFF !important;
+  border-color: #3869AC !important;
+  box-shadow: 0 10px 24px rgba(56,105,172,0.18) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.home-page-shell .site-header.is-scrolled .header-cta:hover {
+  background: #2F5C96 !important;
+  color: #FFFFFF !important;
+  border-color: #2F5C96 !important;
+}
+
 .home-hero-backdrop {
   background:
     url('../../photo/%D1%81%D0%B0%D0%BD%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D0%B9.jpg') center center / cover no-repeat !important;
