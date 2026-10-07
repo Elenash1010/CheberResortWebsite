@@ -4217,6 +4217,15 @@ select,
 
 .special-offer-card__media--gift img { object-position: left center; }
 .special-offer-card__media--south img { object-position: center center; }
+.special-offer-card__media--south::after { background: none; }
+.special-offer-card__media--south .special-offer-card__badge,
+.special-offer-card__media--early .special-offer-card__badge {
+  min-width: 48px;
+  height: 34px;
+  padding: 0 10px;
+  font-size: 18px;
+  border-radius: 0 0 0 12px;
+}
 .special-offer-card__media--family img { object-position: 38% center; }
 .special-offer-card__media--early img { object-position: 62% center; }
 .special-offer-card__media--wellness img { object-position: 45% center; }
