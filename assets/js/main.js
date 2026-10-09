@@ -1076,6 +1076,49 @@ function initExpertsSlider() {
 
     let index = 0;
 
+    const descriptions = slides.map((card, cardIndex) => {
+      const body = card.querySelector(".expert-card__body");
+      const paragraphs = body ? Array.from(body.querySelectorAll("p")) : [];
+      if (!paragraphs.length) return null;
+      const description = document.createElement("div");
+      description.className = "expert-card__description";
+      description.id = `expert-description-${Array.from(document.querySelectorAll("[data-experts-slider]")).indexOf(root)}-${cardIndex}`;
+      body.insertBefore(description, paragraphs[0]);
+      paragraphs.forEach((paragraph) => description.appendChild(paragraph));
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "expert-card__toggle";
+      button.textContent = "Показать полностью";
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-controls", description.id);
+      body.appendChild(button);
+      button.addEventListener("click", () => {
+        const expanded = button.getAttribute("aria-expanded") !== "true";
+        description.classList.toggle("is-expanded", expanded);
+        button.setAttribute("aria-expanded", String(expanded));
+        button.textContent = expanded ? "Свернуть" : "Показать полностью";
+        update();
+      });
+      return { description, button };
+    });
+
+    function refreshDescriptions() {
+      descriptions.forEach((entry) => {
+        if (!entry) return;
+        const { description, button } = entry;
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        description.classList.remove("is-expanded");
+        const overflowing = description.scrollHeight > description.clientHeight + 1;
+        button.hidden = !overflowing;
+        description.classList.toggle("is-expanded", expanded && overflowing);
+        if (!overflowing) {
+          button.setAttribute("aria-expanded", "false");
+          button.textContent = "Показать полностью";
+        }
+      });
+      update();
+    }
+
     const getVisibleCount = () => {
       if (window.innerWidth <= 760) return 1;
       if (window.innerWidth <= 1180) return 2;
@@ -1104,6 +1147,7 @@ function initExpertsSlider() {
       const slideWidth = slides[0].getBoundingClientRect().width;
       const gap = parseFloat(getComputedStyle(track).gap) || 0;
       track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
+      track.style.height = `${Math.ceil(Math.max(...slides.slice(index, index + visibleCount).map((slide) => slide.getBoundingClientRect().height)))}px`;
 
       dots.forEach((dot, dotIndex) => {
         const active = dotIndex === index;
@@ -1123,8 +1167,9 @@ function initExpertsSlider() {
       update();
     });
 
-    window.addEventListener("resize", update);
-    update();
+    window.addEventListener("resize", refreshDescriptions);
+    refreshDescriptions();
+    if (document.fonts) document.fonts.ready.then(refreshDescriptions);
   });
 }
 
