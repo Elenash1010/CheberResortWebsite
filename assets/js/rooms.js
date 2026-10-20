@@ -3,20 +3,143 @@ const cheberRooms = [
     id: "standard-2-2",
     name: "«Стандартный» двухкомнатный, 2+2",
     facts: ["2 комнаты", "Размещение 2+2"],
-    photos: [1, 2, 3, 4, 5, 6, 7].map((number) => ({
-      src: `assets/img/rooms/Two-room%20standard/${number}.jpg`,
-      alt: `«Стандартный» двухкомнатный, 2+2 — фото ${number}`,
+    photos: [4372, 4369, 4375, 4378, 4380, 4382, 4385, 4389, 4392, 4394, 4397, 4400].map((number, index) => ({
+      src: `assets/img/rooms/Standard%20Two-Room%20Accommodation,%202+2%20(5th%20and%206th%20floors,%20excluding%20rooms%20510%20and%20610)/0Y0A${number}_resized.jpg`,
+      alt: `«Стандартный» двухкомнатный, 2+2 — фото ${index + 1}`,
       caption: "«Стандартный» двухкомнатный, 2+2"
     }))
   },
   { id: "standard-comfort-2-2", name: "«Стандартный» двухкомнатный улучшенной комфортности, 2+2", facts: ["2 комнаты", "Размещение 2+2", "Улучшенная комфортность"] },
-  { id: "standard-1-1", name: "«Стандартный» двухкомнатный, 1+1", facts: ["2 комнаты", "Размещение 1+1"] },
-  { id: "family", name: "Семейный трёхместный", facts: ["Не более трёх человек"], description: "Семейный номер для размещения не более трёх человек." },
+  {
+    id: "standard-1-1",
+    name: "«Стандартный» двухкомнатный, 1+1",
+    facts: ["2 комнаты", "Размещение 1+1"],
+    photos: [
+      "0Y0A4593_resized.jpg",
+      "0Y0A4412_resized.jpg",
+      "0Y0A4416_resized.jpg",
+      "0Y0A4419_resized.jpg",
+      "0Y0A4422_resized.jpg",
+      "0Y0A4425_resized.jpg",
+      "0Y0A4428_resized.jpg",
+      "0Y0A4430_resized.jpg",
+      "0Y0A4433_resized.jpg",
+      "0Y0A4435_resized.jpg",
+      "0Y0A4437_resized.jpg",
+      "0Y0A4438_resized.jpg",
+      "0Y0A4439_resized.jpg",
+      "0Y0A4440_resized.jpg",
+      "0Y0A4442_resized.jpg",
+      "0Y0A4444_resized.jpg",
+      "0Y0A4447_resized.jpg",
+      "0Y0A4448_resized.jpg",
+      "0Y0A4451_resized.jpg",
+      "0Y0A4454_resized.jpg",
+      "0Y0A4457_resized.jpg",
+      "0Y0A4458_resized.jpg",
+      "0Y0A4459_resized.jpg",
+      "0Y0A4461_resized.jpg",
+      "0Y0A4464_resized.jpg",
+      "0Y0A4467_resized.jpg",
+      "0Y0A4469_resized.jpg",
+      "0Y0A4471_resized.jpg",
+      "0Y0A4473_resized.jpg",
+      "0Y0A4474_resized.jpg",
+      "0Y0A4535_resized.jpg",
+      "0Y0A4536_resized.jpg",
+      "0Y0A4539_resized.jpg",
+      "0Y0A4543_resized.jpg",
+      "0Y0A4547_resized.jpg",
+      "0Y0A4550_resized.jpg",
+      "0Y0A4555_resized.jpg",
+      "0Y0A4558_resized.jpg",
+      "0Y0A4560_resized.jpg",
+      "0Y0A4561_resized.jpg",
+      "0Y0A4563_resized.jpg",
+      "0Y0A4565_resized.jpg",
+      "0Y0A4568_resized.jpg",
+      "0Y0A4571_resized.jpg",
+      "0Y0A4574_resized.jpg",
+      "0Y0A4576_resized.jpg",
+      "0Y0A4579_resized.jpg",
+      "0Y0A4583_resized.jpg",
+      "0Y0A4586_resized.jpg",
+      "0Y0A4589_resized.jpg",
+      "0Y0A4590_resized.jpg",
+      "0Y0A4595_resized.jpg",
+      "0Y0A4598_resized.jpg",
+      "0Y0A4602_resized.jpg",
+      "0Y0A4606_resized.jpg",
+      "0Y0A4610_resized.jpg",
+      "0Y0A4612_resized.jpg",
+      "0Y0A4615_resized.jpg"
+    ].map((filename, index) => ({
+      src: `assets/img/rooms/Standard%20Two-Room%20Accommodation%2C%201%2B1%20(rooms%20307%2C%20308%2C%20311%E2%80%93317%2C%20404%2C%20405%2C%20502%2C%20503)/${encodeURIComponent(filename)}`,
+      alt: `«Стандартный» двухкомнатный, 1+1 — фото ${index + 1}`,
+      caption: "«Стандартный» двухкомнатный, 1+1"
+    }))
+  },
+  {
+    id: "family",
+    name: "Семейный трёхместный",
+    facts: ["Не более трёх человек"],
+    description: "Семейный номер для размещения не более трёх человек.",
+    photos: [4486, 4488, 4489, 4491, 4495, 4497, 4498, 4499].map((number, index) => ({
+      src: `assets/img/rooms/Family%20Triple%20Room%20(rooms%20302%E2%80%93306).%20The%20rate%20is%20per%20room%20for%20up%20to%20three%20guests/0Y0A${number}_resized.jpg`,
+      alt: `Семейный трёхместный — фото ${index + 1}`,
+      caption: "Семейный трёхместный"
+    }))
+  },
   { id: "single-comfort-1-1", name: "Одноместный улучшенной комфортности, 1+1", facts: ["Размещение 1+1", "Улучшенная комфортность"] },
-  { id: "single-comfort", name: "Одноместный улучшенной комфортности", facts: ["Одноместный", "Улучшенная комфортность"] },
-  { id: "studio", name: "Одноместный повышенной комфортности «Студия»", facts: ["Одноместный", "Студия", "Повышенная комфортность"] },
-  { id: "single-two-room", name: "Одноместный двухкомнатный повышенной комфортности", facts: ["Одноместный", "2 комнаты", "Повышенная комфортность"] },
-  { id: "apartments", name: "Апартаменты", facts: ["Апартаменты"] }
+  {
+    id: "single-comfort",
+    name: "Одноместный улучшенной комфортности",
+    facts: ["Одноместный", "Улучшенная комфортность"],
+    photos: [4372, 4369, 4375, 4378, 4380, 4382, 4385, 4389, 4392, 4394, 4397, 4400, 4404, 4408].map((number, index) => ({
+      src: `assets/img/rooms/Superior%20Single%20Room%20(rooms%20410,%20610,%20710)/0Y0A${number}_resized.jpg`,
+      alt: `Одноместный улучшенной комфортности — фото ${index + 1}`,
+      caption: "Одноместный улучшенной комфортности"
+    }))
+  },
+  {
+    id: "studio",
+    name: "Одноместный повышенной комфортности «Студия»",
+    facts: ["Одноместный", "Студия", "Повышенная комфортность"],
+    photos: [4339, 4282, 4285, 4288, 4290, 4292, 4294, 4297, 4300, 4303, 4306, 4309, 4311, 4312, 4316, 4319, 4320, 4322, 4324, 4329, 4332, 4336, 4342, 4344, 4346, 4348, 4349, 4352].map((number, index) => ({
+      src: `assets/img/rooms/Deluxe%20Single%20Studio%20(rooms%20411%E2%80%93415)/0Y0A${number}_resized.jpg`,
+      alt: `Одноместный повышенной комфортности «Студия» — фото ${index + 1}`,
+      caption: "Одноместный повышенной комфортности «Студия»"
+    }))
+  },
+  {
+    id: "single-two-room",
+    name: "Одноместный двухкомнатный повышенной комфортности",
+    facts: ["Одноместный", "2 комнаты", "Повышенная комфортность"]
+  },
+  {
+    id: "apartments",
+    name: "Апартаменты",
+    facts: ["Апартаменты"],
+    photos: [
+      "0Y0A4204_resized.jpg",
+      "0Y0A4166_resized (1).jpg",
+      "0Y0A4168_resized (1).jpg",
+      "0Y0A4171_resized (1).jpg",
+      "0Y0A4174_resized (1).jpg",
+      "0Y0A4178_resized.jpg",
+      "0Y0A4181_resized.jpg",
+      "0Y0A4184_resized.jpg",
+      "0Y0A4185_resized (1).jpg",
+      "0Y0A4194_resized.jpg",
+      "0Y0A4198_resized.jpg",
+      "0Y0A4202_resized.jpg",
+      "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"
+    ].map((filename, index) => ({
+      src: `assets/img/rooms/Apartments%20(rooms%20309,%20408,%20409)/${encodeURIComponent(filename)}`,
+      alt: `Апартаменты — фото ${index + 1}`,
+      caption: "Апартаменты"
+    }))
+  }
 ];
 
 (() => {
