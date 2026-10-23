@@ -145,3 +145,4 @@ html[data-site-view="short"] #about-cheber .cheber-intro-actions a[href="program
 }
 #site-header .mobile-nav a strong { display: block; color: #3869AC; }
 #site-header .mobile-nav a span { display: none; }
+html[data-site-view="short"] .guest-reviews-section { display: none !important; }
