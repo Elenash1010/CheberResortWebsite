@@ -8678,3 +8678,7 @@ body[data-page="offers.html"] .special-offer-card__media { min-height: 258px; }
   transform: scale(1.2);
   transform-origin: 45% 48%;
 }
+#specialists .expert-card__media img[src="assets/img/Blohin.jpg"] {
+  transform: translate(-5%, -4%) scale(1.3);
+  transform-origin: 65% 38%;
+}
