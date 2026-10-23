@@ -124,3 +124,24 @@ html[data-site-view="short"] #b2b-spaces { display: none !important; }
 html[data-site-view="short"] .room-feature-pills,
 html[data-site-view="short"] .experts-benefits-grid { display: none !important; }
 html[data-site-view="short"] #about-cheber .cheber-intro-actions a[href="programs.html"] { display: none !important; }
+
+/* Desktop navigation also fits standard laptop screens. */
+@media (min-width: 1180px) and (max-width: 1600px) {
+  #site-header .header-top-premium {
+    grid-template-columns: 160px minmax(0,1fr) auto !important;
+    gap: 16px !important;
+    padding: 12px 18px !important;
+  }
+  #site-header .brand-logo--header { width: 160px !important; height: 56px !important; }
+  #site-header .header-inline-nav { display: flex !important; gap: 12px !important; justify-content: space-between !important; }
+  #site-header .header-inline-nav .nav-link { font-size: 13px !important; letter-spacing: 0; }
+  #site-header .header-cta { font-size: 12px !important; padding: 10px 12px !important; }
+  #site-header .nav-toggle { display: none !important; }
+  #site-header .mobile-nav { display: none !important; }
+}
+#site-header .mobile-nav {
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+}
+#site-header .mobile-nav a strong { display: block; color: #3869AC; }
+#site-header .mobile-nav a span { display: none; }
