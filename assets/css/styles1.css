@@ -8657,3 +8657,8 @@ body.inner-page-shell::before {
 #specialists .expert-card__description { min-height: 78px; }
 #specialists .expert-card__toggle { margin-top: auto; padding-top: 12px; text-align: left; }
 #specialists .expert-card__body h3 { color: #3869AC; }
+
+#about-cheber .cheber-intro-media img[src="assets/img/Building.jpg"] {
+  transform: scale(1.2);
+  transform-origin: 45% 48%;
+}
