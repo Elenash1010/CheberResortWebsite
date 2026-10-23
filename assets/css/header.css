@@ -116,3 +116,11 @@
   .development-notice { right: 16px; bottom: 16px; padding: 22px; max-height: 70dvh; }
 }
 @media (prefers-reduced-motion: reduce) { .development-notice { animation: none; } }
+/* Main presentation omits the sections reserved for the full preview. */
+html[data-site-view="short"] #pool-sauna,
+html[data-site-view="short"] #infrastructure,
+html[data-site-view="short"] #extra-features,
+html[data-site-view="short"] #b2b-spaces { display: none !important; }
+html[data-site-view="short"] .room-feature-pills,
+html[data-site-view="short"] .experts-benefits-grid { display: none !important; }
+html[data-site-view="short"] #about-cheber .cheber-intro-actions a[href="programs.html"] { display: none !important; }

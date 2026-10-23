@@ -458,8 +458,12 @@ function buildHeaderNav(page) {
     .join("");
 }
 
+function isVisibleInSiteView([anchor]) {
+  return document.documentElement.dataset.siteView !== "short" ||
+    !["pool-sauna", "infrastructure", "extra-features", "b2b-spaces"].includes(anchor);
+}
 function buildHeaderMoreMenu(page) {
-  const links = homeMoreLinks
+  const links = homeMoreLinks.filter(isVisibleInSiteView)
     .map(([anchor, label, description]) => `
       <a class="mega-link mega-link--header" href="${buildHomeAnchorHref(page, anchor)}">
         <strong>${label}</strong>
@@ -493,7 +497,7 @@ function buildMegaLinks(page) {
 }
 
 function buildMobileNav(page) {
-  const mobileItems = [...homeHeaderLinks, ...homeMoreLinks];
+  const mobileItems = [...homeHeaderLinks, ...homeMoreLinks].filter(isVisibleInSiteView);
 
   return mobileItems
     .map(([anchor, label, description]) => {
