@@ -670,7 +670,7 @@ button {
 
 .ticker-track span {
   padding: 0 10px;
-  color: var(--muted);
+  color: #3869AC;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -5618,13 +5618,7 @@ select,
 .medical-tile[href$="climate-therapy.html"] img { object-position: center 30%; }
 .medical-tile[href$="massage.html"] img { object-position: center 66%; }
 
-.medical-tile::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.34) 100%);
-  z-index: 1;
-}
+.medical-tile::before { content: none; }
 
 .medical-tile span {
   position: absolute;
@@ -5632,7 +5626,7 @@ select,
   right: 24px;
   bottom: 22px;
   z-index: 2;
-  color: #fff;
+  color: var(--accent);
   font-family: "PT Sans", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.2;
@@ -8341,3 +8335,341 @@ body.inner-page-shell::before {
   color: #3869AC !important;
 }
 
+
+/* Keep contact details readable on narrow screens. */
+.contacts-feature-line a {
+  overflow-wrap: anywhere;
+}
+.contacts-feature-line--single span {
+  white-space: normal;
+}
+
+/* Therapy card captions below the photos. */
+#therapy-procedures .medical-tile {
+  min-height: 0;
+  overflow: visible;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#therapy-procedures .medical-tile img {
+  display: block;
+  height: auto;
+  aspect-ratio: 1.48 / 1;
+  border-radius: 24px;
+}
+
+#therapy-procedures .medical-tile span {
+  position: static;
+  display: block;
+  margin-top: 4px;
+  color: var(--accent);
+}
+
+#therapy-procedures .medical-tile:hover img {
+  transform: none;
+}
+/* Room names below the photos. */
+.room-slider-track {
+  align-items: start;
+}
+
+.room-slide-card,
+.room-slide-card.is-center {
+  height: auto;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.room-slide-card img {
+  position: static;
+  height: 258px;
+  border-radius: 24px;
+}
+
+.room-slide-card__overlay {
+  display: none;
+}
+
+.room-slide-card__content {
+  position: static;
+  margin-top: 4px;
+  color: var(--accent);
+}
+
+.room-slide-card__cta {
+  top: 200px;
+  bottom: auto;
+}
+.room-slide-card__details {
+  display: block;
+  color: #000;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.25;
+}
+/* Compact children's program card details, matching voucher rows. */
+#children-programs .voucher-card__body {
+  grid-template-rows: auto auto auto 1fr;
+  gap: 12px;
+}
+#children-programs .voucher-card__body h3 { align-self: start; }
+#children-programs .voucher-card__price { margin-top: 0; }
+.contacts-feature-group--address {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #DED6CE;
+}
+.contacts-feature-group--address .contacts-feature-label-row {
+  flex: 0 0 auto;
+  gap: 4px;
+  margin: 0;
+}
+.contacts-feature-group--address .contacts-feature-icon { width: 14px; }
+.contacts-feature-group--address .contacts-feature-line {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+.contacts-feature-group--address .contacts-feature-line span { white-space: normal; }
+.contacts-feature-group--phones {
+  padding: 10px 0;
+  border-bottom: 1px solid #DED6CE;
+}
+.contacts-feature-group--phones .contacts-feature-label-row {
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.contacts-feature-group--phones .contacts-feature-icon { width: 14px; }
+.contacts-feature-phones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+.contacts-feature-phones a {
+  white-space: nowrap;
+  color: #3d342d;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.contacts-feature-group--email {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #DED6CE;
+}
+.contacts-feature-group--email .contacts-feature-label-row {
+  flex: 0 0 auto;
+  gap: 4px;
+  margin: 0;
+}
+.contacts-feature-group--email .contacts-feature-icon { width: 14px; }
+.contacts-feature-group--email .contacts-feature-line {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+.contacts-feature-group--email a { overflow-wrap: anywhere; }
+.contacts-feature-group--sales {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #DED6CE;
+}
+.contacts-feature-group--sales .contacts-feature-label-row {
+  flex: 0 0 auto;
+  gap: 4px;
+  margin: 0;
+}
+.contacts-feature-group--sales .contacts-feature-icon { width: 14px; }
+.contacts-feature-sales-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  min-width: 0;
+}
+.contacts-feature-sales-links a {
+  color: #3d342d;
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.contacts-feature-sales-links a[href^="tel:"] { white-space: nowrap; }
+.contacts-feature-group--phones {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.contacts-feature-group--phones .contacts-feature-label-row {
+  flex: 0 0 auto;
+  margin: 0;
+}
+.contacts-feature-group--phones .contacts-feature-phones { min-width: 0; }
+.wellness-nav { position: relative; }
+.wellness-nav summary { cursor: pointer; list-style: none; }
+.wellness-nav summary::-webkit-details-marker { display: none; }
+.wellness-nav summary::after { content: "⌄"; margin-left: 6px; }
+.wellness-nav__list {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 100;
+  min-width: 180px;
+  padding: 8px;
+  border: 1px solid #E3EBF3;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(30, 50, 80, 0.15);
+}
+.wellness-nav__list a {
+  display: block;
+  padding: 10px 14px;
+  color: #3869AC;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.wellness-nav__list a:hover,
+.wellness-nav__list a:focus-visible { background: #F2F7FC; }
+.header-wellness-dropdown { position: relative; display: flex; align-items: center; }
+.header-inline-nav .header-wellness-dropdown #header-wellness-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  right: auto;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  transform: none;
+}
+/* Keep header navigation spaced and clear of the booking button. */
+@media (min-width: 1451px) {
+  .header-inline-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: none;
+    min-width: 0;
+  }
+  .header-inline-nav > .nav-link,
+  .header-wellness-dropdown { flex: 0 0 auto; }
+}
+@media (max-width: 1450px) {
+  .header-inline-nav { display: none; }
+  .home-page-shell .header-top-premium,
+  .inner-page-shell .header-top-premium,
+  .voucher-plain-shell .header-top-premium,
+  .header-top-premium {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .header-utility .nav-toggle { display: inline-flex; }
+}
+.header-about-dropdown { position: relative; display: flex; align-items: center; flex: 0 0 auto; }
+.header-inline-nav .header-about-dropdown #header-about-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  right: auto;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  transform: none;
+}
+/* Match the darker physiotherapy shot to the other treatment photos. */
+#therapy-procedures .medical-tile img {
+  opacity: 1;
+  filter: none;
+}
+#therapy-procedures .medical-tile img[src="assets/img/phizio.jpg"] {
+  filter: brightness(1.18) contrast(0.96);
+}
+#therapy-procedures .medical-tile::before,
+#therapy-procedures .medical-tile::after { content: none; }
+/* Larger offer photos, matching the room slider photo height. */
+#special-offers .special-offer-card {
+  grid-template-columns: 50% minmax(0, 1fr);
+  min-height: 258px;
+}
+#special-offers .special-offer-card__media { min-height: 258px; }
+#special-offers .special-offer-card__copy { padding: 24px 22px; }
+@media (max-width: 600px) {
+  #special-offers .special-offer-card { grid-template-columns: 1fr; }
+  #special-offers .special-offer-card__media { height: 258px; }
+  #special-offers .special-offer-card__copy { min-height: 180px; }
+}
+#children-programs .children-program-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  min-height: 0;
+}
+#children-programs .children-program-meta__value {
+  color: #6E7C8C;
+  font-size: 15px;
+  line-height: 1.5;
+}
+body[data-page="offers.html"] .special-offer-card__copy { background: #fff; }
+body[data-page="offers.html"] .special-offer-card__copy::before { content: none; }
+body[data-page="offers.html"] .special-offer-card { grid-template-columns: 50% minmax(0,1fr); min-height: 258px; }
+body[data-page="offers.html"] .special-offer-card__media { min-height: 258px; }
+@media (max-width: 600px) {
+  body[data-page="offers.html"] .special-offer-card { grid-template-columns: 1fr; }
+  body[data-page="offers.html"] .special-offer-card__media { height: 258px; }
+}
+.site-footer .footer-contacts {
+  color: #26384b;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.site-footer .footer-contacts h2 {
+  margin: 0 0 14px;
+  color: #26384b;
+  font-size: 22px;
+  line-height: 1.25;
+}
+.site-footer .footer-contacts p { margin: 0 0 14px; font-size: 16px !important; }
+.site-footer .footer-contacts strong { font-weight: 700; }
+.site-footer .footer-contacts a { color: #26384b; text-decoration: none; }
+.site-footer .footer-contacts a:hover { color: #3869AC; }
+.footer-contacts__phones { display: flex; flex-direction: column; margin-bottom: 14px; }
+.footer-contacts__phones a { font-weight: 600; }
+.footer-contacts__socials { display: flex; gap: 12px; margin-top: 12px; }
+.footer-social-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #3869AC;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+}
+.footer-social-placeholder svg { display: block; width: 30px; height: 30px; }
+.footer-social-placeholder { background: #fff; }
+.footer-social-placeholder svg { width: 100%; height: 100%; }
+
+#about-cheber .cheber-intro-copy h3 { color: #3869AC; }
+
+/* Uniform specialist cards despite different name and role lengths. */
+#specialists .experts-track { align-items: stretch; }
+#specialists .expert-card { height: 100%; }
+#specialists .expert-card__media { flex: 0 0 314px; }
+#specialists .expert-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+#specialists .expert-card__body h3 { min-height: 2.4em; }
+#specialists .expert-card__body > span { min-height: 2.7em; }
+#specialists .expert-card__description { min-height: 78px; }
+#specialists .expert-card__toggle { margin-top: auto; padding-top: 12px; text-align: left; }
+#specialists .expert-card__body h3 { color: #3869AC; }

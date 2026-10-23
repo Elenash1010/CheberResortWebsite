@@ -29,6 +29,10 @@
 .room-equipment-grid article { padding: 18px; border: 1px solid #d8e4f0; background: #f2f7fc; border-radius: 16px; color: #465a70; font-size: 14px; line-height: 1.48; }
 .room-equipment-grid h3 { margin: 0 0 14px; font-size: 18px; }
 .room-equipment-grid ul { margin: 0; padding-left: 20px; color: #465a70; line-height: 1.48; }
+.room-equipment-grid .room-equipment-list { display: grid; gap: 10px; padding: 0; list-style: none; }
+.room-equipment-list li { display: flex; align-items: center; gap: 10px; }
+.room-equipment-icon { display: block; flex: 0 0 36px; width: 36px; height: 36px; object-fit: contain; }
+.room-equipment-list + p { margin-top: 14px; }
 .room-equipment-grid p { margin: 0; color: #465a70; line-height: 1.48; }
 .room-other-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .room-other-card { display: block; border: 1px solid #d8e4f0; border-radius: 16px; overflow: hidden; color: #26384b; background: #f2f7fc; text-decoration: none; }
@@ -50,4 +54,20 @@
 @media (max-width: 480px) {
   .room-other-grid { grid-template-columns: 1fr; }
   .room-gallery-stage { height: 250px; }
+}
+
+.rooms-catalog-intro { margin: 0 0 28px; }
+.rooms-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 24px;
+  align-items: start;
+}
+.rooms-catalog-grid .room-slide-card img { height: auto; aspect-ratio: 1.48 / 1; }
+.rooms-catalog-grid .room-slide-card__cta { top: 18px; bottom: auto; }
+@media (max-width: 1000px) {
+  .rooms-catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .rooms-catalog-grid { grid-template-columns: 1fr; }
 }

@@ -1,4 +1,4 @@
-﻿const navItems = [
+const navItems = [
   ["index.html", "Главная", "Стартовая витрина санатория, программы и быстрые контакты"],
   ["about.html", "О санатории", "История, преимущества, инфраструктура, подход к восстановлению"],
   ["programs.html", "Программы", "Комплексные программы оздоровления и восстановления"],
@@ -10,7 +10,7 @@
   ["services.html", "Прочие услуги", "Бассейн, вечернее оздоровление и дополнительные сервисы"],
   ["documents.html", "Документы", "Правила, документы на заезд, лицензии и памятки"],
   ["offers.html", "Акции и спецпредложения", "Сезонные предложения, скидки и пакетные решения"],
-  ["contacts.html", "Контакты", "Телефоны, адрес, почта, мессенджеры и карта"],
+  ["index.html#contacts-block", "Контакты", "Телефоны, адрес, почта, мессенджеры и карта"],
 ];
 
 const searchItems = [
@@ -28,7 +28,7 @@ const searchItems = [
   {
     href: "climate-therapy.html",
     label: "Лечебные климатические воздействия",
-    description: "Озокерит, аэрофитотерапия, соляная шахта, фитосбор и кислородный коктейль",
+    description: "Аэрофитотерапия, соляная шахта, фитосбор и кислородный коктейль",
   },
   {
     href: "massage.html",
@@ -61,25 +61,27 @@ const homeHeaderLinks = [
   ["vouchers", "Путевки", "Путевки: интенсивность и длительность"],
   ["courses", "Курсовки", "Курсовки"],
   ["therapy-procedures", "Терапия и процедуры", "Терапия и процедуры"],
-  ["pool-sauna", "Бассейн и сауна", "Бассейн и сауна"],
   ["children-programs", "Программы для детей", "Программы для детей"],
+  ["comfort-rooms", "Комфортные номера", "Номера и бронирование"],
 ];
 const homeMoreLinks = [
   ["special-offers", "Акции", "Специальные предложения"],
-  ["specialists", "Специалисты", "Наши специалисты"],
-  ["comfort-rooms", "Забронировать номер", "Комфортные номера"],
+  ["events.html", "Наша АФИША", "Новости и анонсы событий"],
+
+  ["pool-sauna", "Бассейн и сауна", "Плавание, занятия и отдых в сауне"],
   ["infrastructure", "Инфраструктура", "Инфраструктура"],
   ["extra-features", "Бронирование под мероприятия", "Дополнительные возможности"],
   ["b2b-spaces", "Пространства для бизнеса", "B2B: Пространства для бизнеса"],
 ];
 
 function buildHomeAnchorHref(page, anchor) {
+  if (anchor.endsWith(".html")) return anchor;
   return page === "index.html" ? `#${anchor}` : `index.html#${anchor}`;
 }
 const innerPageConfigs = {
   "about.html": {
     tags: ["Премиальный санаторий", "Проживание и лечение", "Семейный формат"],
-    primary: { href: "contacts.html", label: "Получить консультацию" },
+    primary: { href: "index.html#contacts-block", label: "Получить консультацию" },
     secondary: { href: "programs.html", label: "Смотреть программы" },
     spotlight: {
       eyebrow: "Почему выбирают ЧЕБЕР",
@@ -99,7 +101,7 @@ const innerPageConfigs = {
   },
   "programs.html": {
     tags: ["Индивидуальный подбор", "Профилактика и восстановление", "Разная длительность"],
-    primary: { href: "contacts.html", label: "Подобрать программу" },
+    primary: { href: "index.html#contacts-block", label: "Подобрать программу" },
     secondary: { href: "vouchers.html", label: "Смотреть путевки" },
     spotlight: {
       eyebrow: "Как устроен раздел",
@@ -119,7 +121,7 @@ const innerPageConfigs = {
   },
   "courses.html": {
     tags: ["Без проживания", "Дневные визиты", "Гибкий формат"],
-    primary: { href: "contacts.html", label: "Уточнить условия" },
+    primary: { href: "index.html#contacts-block", label: "Уточнить условия" },
     secondary: { href: "services.html", label: "Посмотреть услуги" },
     spotlight: {
       eyebrow: "Курсовки",
@@ -139,7 +141,7 @@ const innerPageConfigs = {
   },
   "vouchers.html": {
     tags: ["Разная длительность", "Семейные и тематические форматы", "Быстрое сравнение"],
-    primary: { href: "contacts.html", label: "Подобрать путевку" },
+    primary: { href: "index.html#contacts-block", label: "Подобрать путевку" },
     secondary: { href: "hotel.html", label: "Выбрать размещение" },
     spotlight: {
       eyebrow: "Витрина путевок",
@@ -159,7 +161,7 @@ const innerPageConfigs = {
   },
   "children.html": {
     tags: ["Родители и дети", "Лагерь и семейные заезды", "Питание и безопасность"],
-    primary: { href: "contacts.html", label: "Узнать о детских программах" },
+    primary: { href: "index.html#contacts-block", label: "Узнать о детских программах" },
     secondary: { href: "hotel.html", label: "Посмотреть семейные номера" },
     spotlight: {
       eyebrow: "Для родителей",
@@ -179,7 +181,7 @@ const innerPageConfigs = {
   },
   "medical.html": {
     tags: ["Процедуры и направления", "Консультация врача", "Премиальный сервис"],
-    primary: { href: "contacts.html", label: "Записаться на консультацию" },
+    primary: { href: "index.html#contacts-block", label: "Записаться на консультацию" },
     secondary: { href: "programs.html", label: "Смотреть программы" },
     spotlight: {
       eyebrow: "Медицинский блок",
@@ -199,7 +201,7 @@ const innerPageConfigs = {
   },
   "hotel.html": {
     tags: ["Размещение и комфорт", "Семейные форматы", "Проживание рядом с лечением"],
-    primary: { href: "contacts.html", label: "Забронировать номер" },
+    primary: { href: "index.html#contacts-block", label: "Забронировать номер" },
     secondary: { href: "offers.html", label: "Смотреть предложения" },
     spotlight: {
       eyebrow: "Гостиница",
@@ -219,7 +221,7 @@ const innerPageConfigs = {
   },
   "services.html": {
     tags: ["Бассейн и сауна", "Тренировки и восстановление", "Дополнительные форматы"],
-    primary: { href: "contacts.html", label: "Уточнить посещение" },
+    primary: { href: "index.html#contacts-block", label: "Уточнить посещение" },
     secondary: { href: "children.html", label: "Детские занятия" },
     spotlight: {
       eyebrow: "Дополнительные услуги",
@@ -239,7 +241,7 @@ const innerPageConfigs = {
   },
   "documents.html": {
     tags: ["Подготовка к заезду", "Памятки и лицензии", "Все файлы в одном месте"],
-    primary: { href: "contacts.html", label: "Уточнить по документам" },
+    primary: { href: "index.html#contacts-block", label: "Уточнить по документам" },
     secondary: { href: "about.html", label: "О санатории" },
     spotlight: {
       eyebrow: "Практический раздел",
@@ -259,7 +261,7 @@ const innerPageConfigs = {
   },
   "offers.html": {
     tags: ["Сезонные акции", "Подарочные сертификаты", "Семейные заезды"],
-    primary: { href: "contacts.html", label: "Получить предложение" },
+    primary: { href: "index.html#contacts-block", label: "Получить предложение" },
     secondary: { href: "hotel.html", label: "Выбрать размещение" },
     spotlight: {
       eyebrow: "Акции и выгоды",
@@ -277,10 +279,10 @@ const innerPageConfigs = {
       text: "Можно быстро уточнить актуальные выгоды и сразу перейти к бронированию подходящего сценария.",
     },
   },
-  "contacts.html": {
+  "index.html#contacts-block": {
     tags: ["Телефон и мессенджеры", "Адрес и карта", "Быстрый ответ"],
-    primary: { href: "tel:+78000000000", label: "Позвонить сейчас" },
-    secondary: { href: "https://wa.me/70000000000", label: "Написать в WhatsApp" },
+    primary: { href: "tel:+73412240555", label: "Позвонить сейчас" },
+    secondary: { href: "mailto:info@cheberresort.ru", label: "Написать на почту" },
     spotlight: {
       eyebrow: "Связь без лишних шагов",
       title: "Контактная страница закрывает путь пользователя так же уверенно, как главная открывает его",
@@ -443,7 +445,14 @@ function buildMainNav(page) {
 
 function buildHeaderNav(page) {
   return homeHeaderLinks
+    .filter(([anchor]) => anchor !== "courses")
     .map(([anchor, label]) => {
+      if (anchor === "about-cheber") {
+        return `<div class="header-about-dropdown"><button class="nav-link nav-link--toggle" type="button" data-mega-toggle aria-expanded="false" aria-controls="header-about-menu">О санатории</button><div class="mega-panel" id="header-about-menu" data-mega-panel><div class="mega-links mega-links--header"><a class="mega-link mega-link--header" href="${buildHomeAnchorHref(page, "about-cheber")}"><strong>Про Чебер</strong></a><a class="mega-link mega-link--header" href="${buildHomeAnchorHref(page, "specialists")}"><strong>Наши специалисты</strong></a><a class="mega-link mega-link--header" href="documents.html"><strong>Наши документы</strong></a></div></div></div>`;
+      }
+      if (anchor === "vouchers") {
+        return `<div class="header-wellness-dropdown"><button class="nav-link nav-link--toggle" type="button" data-mega-toggle aria-expanded="false" aria-controls="header-wellness-menu">Оздоровление</button><div class="mega-panel" id="header-wellness-menu" data-mega-panel><div class="mega-links mega-links--header"><a class="mega-link mega-link--header" href="${buildHomeAnchorHref(page, "courses")}"><strong>Курсовки</strong><span>Оздоровление без проживания</span></a><a class="mega-link mega-link--header" href="${buildHomeAnchorHref(page, "vouchers")}"><strong>Путевки</strong><span>Программы с проживанием</span></a></div></div></div>`;
+      }
       return `<a class="nav-link" href="${buildHomeAnchorHref(page, anchor)}">${label}</a>`;
     })
     .join("");
@@ -460,7 +469,7 @@ function buildHeaderMoreMenu(page) {
     .join("");
 
   return `
-    <button class="nav-link nav-link--toggle" type="button" data-mega-toggle aria-expanded="false" aria-controls="header-more-menu">Еще</button>
+    <button class="nav-link nav-link--toggle" type="button" data-mega-toggle aria-expanded="false" aria-controls="header-more-menu">Вашему вниманию</button>
     <div class="mega-panel" id="header-more-menu" data-mega-panel>
       <div class="mega-links mega-links--header">
         ${links}
@@ -515,7 +524,7 @@ function renderShell() {
             ${buildHeaderMoreMenu(page)}
           </nav>
           <div class="header-utility">
-            <a class="btn btn-primary header-cta" href="contacts.html">Забронировать / связаться</a>
+            <a class="btn btn-primary header-cta" href="index.html#contacts-block">Забронировать / связаться</a>
             <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">Меню</button>
           </div>
         </div>
@@ -553,17 +562,31 @@ function renderShell() {
               <p>
                 Заполняя форму обратной связи, в том числе указывая номер телефона на сайте или лендингах, либо подписываясь на рассылку, вы выражаете: согласие на получение рассылки посредством email любой информации курорта Чебер, выражаете своё согласие на обработку ваших персональных данных, в целях заключения и исполнения договора оказания санаторно-курортных и/или оздоровительных услуг, и/или платных медицинских услуг.
               </p>
-              <p>Электронная почта для обращений с вопросом о своих персональных данных, в том числе об их удалении: <a href="mailto:info@cheberresot.ru">info@cheberresot.ru</a></p>
+              <p>Электронная почта для обращений с вопросом о своих персональных данных, в том числе об их удалении: <a href="mailto:info@cheberresort.ru">info@cheberresort.ru</a></p>
               <p class="footer-legal__warning">ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ, НЕОБХОДИМА КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА.</p>
             </div>
           </div>
-          <div class="footer-links">
-            <strong>Контакты</strong>
-            <a href="tel:+78000000000">8 (800) 000 00 00</a>
-            <a href="mailto:info@sosnovy.example">info@sosnovy.example</a>
-            <a href="https://t.me/" target="_blank" rel="noreferrer">Telegram</a>
-            <a href="https://wa.me/70000000000" target="_blank" rel="noreferrer">WhatsApp</a>
-            <a href="contacts.html">Адрес и карта</a>
+          <div class="footer-contacts">
+            <h2>Контакты и соцсети</h2>
+            <p><strong>Адрес:</strong> г. Ижевск, ул. Ленина, 132, курорт «ЧЕБЕР».</p>
+            <div class="footer-contacts__phones">
+              <strong>Телефоны:</strong>
+              <a href="tel:+73412240555">8 3412 240 555</a>
+              <a href="tel:+79508300573">8 950 830 05 73</a>
+              <a href="tel:+79524082075">8 952 408 20 75</a>
+            </div>
+            <p><strong>E-mail:</strong> <a href="mailto:info@cheberresort.ru">info@cheberresort.ru</a></p>
+            <div class="footer-contacts__socials" aria-label="Социальные сети — ссылки появятся позже">
+              <span class="footer-social-placeholder" role="img" aria-label="ВКонтакте"><svg class="t-sociallinks__svg" role="presentation" width="64px" height="64px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50ZM25 34c.406 19.488 10.15 31.2 27.233 31.2h.968V54.05c6.278.625 11.024 5.216 12.93 11.15H75c-2.436-8.87-8.838-13.773-12.836-15.647C66.162 47.242 71.783 41.62 73.126 34h-8.058c-1.749 6.184-6.932 11.805-11.867 12.336V34h-8.057v21.611C40.147 54.362 33.838 48.304 33.556 34H25Z" fill="#3869AC"></path>
+                    </svg></span>
+              <span class="footer-social-placeholder" role="img" aria-label="Telegram"><svg class="t-sociallinks__svg" role="presentation" width="64px" height="64px" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm21.977-68.056c.386-4.38-4.24-2.576-4.24-2.576-3.415 1.414-6.937 2.85-10.497 4.302-11.04 4.503-22.444 9.155-32.159 13.734-5.268 1.932-2.184 3.864-2.184 3.864l8.351 2.577c3.855 1.16 5.91-.129 5.91-.129l17.988-12.238c6.424-4.38 4.882-.773 3.34.773l-13.49 12.882c-2.056 1.804-1.028 3.35-.129 4.123 2.55 2.249 8.82 6.364 11.557 8.16.712.467 1.185.778 1.292.858.642.515 4.111 2.834 6.424 2.319 2.313-.516 2.57-3.479 2.57-3.479l3.083-20.226c.462-3.511.993-6.886 1.417-9.582.4-2.546.705-4.485.767-5.362Z" fill="#3869AC"></path>
+                    </svg></span>
+              <span class="footer-social-placeholder" role="img" aria-label="MAX"><svg class="t-sociallinks__svg" role="presentation" width="64px" height="64px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0ZM24.2314 12.5C17.8663 12.5 12.4942 17.4255 12.4941 23.9727C12.4941 26.714 13.0015 28.6059 13.4482 30.3047C13.8233 31.6836 14.1543 32.9467 14.1543 34.4414C14.3143 36.4326 17.9823 35.2685 19.1406 33.7793C20.9718 35.1031 22.0251 35.4346 24.292 35.4346C30.5586 35.4011 35.6151 30.2999 35.5938 24.0332C35.5937 17.6682 30.602 12.5 24.2314 12.5ZM24.3857 18.1592V18.165C27.5981 18.349 30.0709 21.0719 29.9453 24.2871C29.7296 27.4955 26.9854 29.9406 23.7734 29.7861C22.768 29.7055 21.8016 29.3614 20.9717 28.7881C20.4699 29.2899 19.6648 29.9402 19.3447 29.8633C18.6774 29.6868 17.8938 26.2951 18.335 23.5098C18.87 20.1452 21.2859 17.9993 24.3857 18.1592Z" fill="#3869AC"></path>
+                    </svg></span>
+            </div>
           </div>
         </div>
         <div class="footer-note">
@@ -605,8 +628,8 @@ function initHeader() {
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
   const mobileNav = document.querySelector(".mobile-nav");
-  const megaToggle = document.querySelector("[data-mega-toggle]");
-  const megaPanel = document.querySelector("[data-mega-panel]");
+  const megaToggles = [...document.querySelectorAll("[data-mega-toggle]")];
+  const closeMegaMenus = () => megaToggles.forEach((button) => { button.setAttribute("aria-expanded", "false"); document.getElementById(button.getAttribute("aria-controls"))?.classList.remove("is-open"); });
 
   function syncScroll() {
     if (!header) return;
@@ -662,20 +685,25 @@ function initHeader() {
     });
   }
 
-  if (megaToggle && megaPanel) {
-    megaToggle.addEventListener("click", () => {
-      const expanded = megaToggle.getAttribute("aria-expanded") === "true";
-      megaToggle.setAttribute("aria-expanded", String(!expanded));
-      megaPanel.classList.toggle("is-open", !expanded);
+  megaToggles.forEach((button) => {
+    const panel = document.getElementById(button.getAttribute("aria-controls"));
+    if (!panel) return;
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      closeMegaMenus();
+      button.setAttribute("aria-expanded", String(!expanded));
+      panel.classList.toggle("is-open", !expanded);
     });
-
-    document.addEventListener("click", (event) => {
-      if (!event.target.closest("[data-mega-toggle]") && !event.target.closest("[data-mega-panel]")) {
-        megaToggle.setAttribute("aria-expanded", "false");
-        megaPanel.classList.remove("is-open");
-      }
+    panel.addEventListener("click", (event) => {
+      if (event.target.closest("a[href]")) closeMegaMenus();
     });
-  }
+  });
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest("[data-mega-toggle], [data-mega-panel]")) closeMegaMenus();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMegaMenus();
+  });
 }
 
 function renderSearchResults(query = "") {

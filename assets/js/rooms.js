@@ -1,6 +1,7 @@
 const cheberRooms = [
   {
     id: "standard-2-2",
+    equipment: ["Холодильник в номере", "Фен по требованию", "Гладильные принадлежности по требованию", "Телевизор в номере", "Чайная станция в номере"],
     name: "«Стандартный» двухкомнатный, 2+2",
     facts: ["2 комнаты", "Размещение 2+2"],
     photos: [4372, 4369, 4375, 4378, 4380, 4382, 4385, 4389, 4392, 4394, 4397, 4400].map((number, index) => ({
@@ -9,9 +10,10 @@ const cheberRooms = [
       caption: "«Стандартный» двухкомнатный, 2+2"
     }))
   },
-  { id: "standard-comfort-2-2", name: "«Стандартный» двухкомнатный улучшенной комфортности, 2+2", facts: ["2 комнаты", "Размещение 2+2", "Улучшенная комфортность"] },
+  { id: "standard-comfort-2-2", name: "«Стандартный» двухкомнатный улучшенной комфортности, 2+2", facts: ["2 комнаты", "Размещение 2+2", "Улучшенная комфортность"], equipment: ["Душевая кабина", "Две полутораспальные кровати в каждой комнате", "Новая мебель", "Телевизор"] },
   {
     id: "standard-1-1",
+    equipment: ["Чайная станция", "Холодильник в холле"],
     name: "«Стандартный» двухкомнатный, 1+1",
     facts: ["2 комнаты", "Размещение 1+1"],
     photos: [
@@ -81,6 +83,7 @@ const cheberRooms = [
   },
   {
     id: "family",
+    equipmentNote: "Цена указана за номер при заселении не более трёх человек.",
     name: "Семейный трёхместный",
     facts: ["Не более трёх человек"],
     description: "Семейный номер для размещения не более трёх человек.",
@@ -103,6 +106,7 @@ const cheberRooms = [
   },
   {
     id: "studio",
+    equipment: ["Кондиционер", "Чайник", "Телевизор", "Холодильник", "Гладильные принадлежности по требованию"],
     name: "Одноместный повышенной комфортности «Студия»",
     facts: ["Одноместный", "Студия", "Повышенная комфортность"],
     photos: [4339, 4282, 4285, 4288, 4290, 4292, 4294, 4297, 4300, 4303, 4306, 4309, 4311, 4312, 4316, 4319, 4320, 4322, 4324, 4329, 4332, 4336, 4342, 4344, 4346, 4348, 4349, 4352].map((number, index) => ({
@@ -113,11 +117,13 @@ const cheberRooms = [
   },
   {
     id: "single-two-room",
+    equipment: ["Кондиционер", "Чайник", "Телевизор", "Холодильник", "Фен", "Гладильные принадлежности по требованию"],
     name: "Одноместный двухкомнатный повышенной комфортности",
     facts: ["Одноместный", "2 комнаты", "Повышенная комфортность"]
   },
   {
     id: "apartments",
+    equipment: ["Своя кухня", "Кондиционер", "Холодильник", "Чайник", "Ванна", "Гладильные принадлежности по требованию"],
     name: "Апартаменты",
     facts: ["Апартаменты"],
     photos: [
@@ -146,6 +152,22 @@ const cheberRooms = [
   const root = document.querySelector("#room-page");
   if (!root) return;
   const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character]));
+  const equipmentIcons = [
+    [/Холодильник|Своя кухня/, "kitchen.svg"],
+    [/Фен/, "hair-dryer.svg"],
+    [/Гладильные принадлежности/, "ironing-facilities.svg"],
+    [/Телевизор/, "tv.svg"],
+    [/Чайная станция|Чайник/, "kettle.svg"],
+    [/Душевая кабина/, "shower.svg"],
+    [/кровати/, "bed.svg"],
+    [/Новая мебель/, "new-furniture.svg"],
+    [/Кондиционер/, "air-conditioning.svg"],
+    [/Ванна/, "bathtub.svg"]
+  ];
+  const equipmentItem = (item) => {
+    const icon = equipmentIcons.find(([pattern]) => pattern.test(item));
+    return `<li>${icon ? `<img class="room-equipment-icon" src="assets/icons/${encodeURIComponent(icon[1])}" alt="" aria-hidden="true" width="36" height="36">` : ""}<span>${escapeHtml(item)}</span></li>`;
+  };
   const roomHref = (room) => `room.html?room=${room.id}`;
   const roomCard = (room) => `<a class="room-other-card" href="${roomHref(room)}"><img src="assets/img/cheber-fasad.png" alt="Санаторий курорт Чебер" loading="lazy"><div><h3>${escapeHtml(room.name)}</h3><span>Подробнее о номере ↗</span></div></a>`;
   if (root.dataset.catalog === "true") {
@@ -167,7 +189,7 @@ const cheberRooms = [
       </div>
       <article class="room-summary"><h2>О номере</h2><div class="room-facts">${room.facts.map((fact) => `<span>${escapeHtml(fact)}</span>`).join("")}</div><p>${escapeHtml(room.description || "Поможем уточнить наличие номера и подобрать условия проживания.")}</p><p>Стоимость проживания зависит от дат заезда и выбранной программы. Уточните условия при бронировании.</p></article>
     </section>
-    <section class="room-section"><h2>Оснащение и комфорт</h2><div class="room-equipment-grid"><article><h3>Оснащение номера</h3><p>Подробности об оснащении этой категории номера уточняйте при бронировании.</p></article><article><h3>Для вашего отдыха</h3><ul><li>Чайная станция</li><li>Гигиенический набор</li><li>Косметика «Чебер»</li><li>Доставка питания в номер</li><li>Меню сна</li></ul></article></div></section>
+    <section class="room-section"><h2>Оснащение и комфорт</h2><div class="room-equipment-grid"><article><h3>Оснащение номера</h3>${room.equipment ? `<ul class="room-equipment-list" role="list">${room.equipment.map(equipmentItem).join("")}</ul>` : `<p>Подробности об оснащении этой категории номера уточняйте при бронировании.</p>`}${room.equipmentNote ? `<p>${escapeHtml(room.equipmentNote)}</p>` : ""}</article><article><h3>Для вашего отдыха</h3><ul><li>Чайная станция</li><li>Гигиенический набор</li><li>Косметика «Чебер»</li><li>Доставка питания в номер</li><li>Меню сна</li></ul></article></div></section>
     <div class="room-section voucher-modal__actions">
       <a class="btn btn-secondary" href="index.html#comfort-rooms">Выбрать другой номер</a>
       <a class="btn btn-primary" href="index.html#contacts-block">Забронировать этот номер</a>
